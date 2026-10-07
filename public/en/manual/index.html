@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KAGO and UNKAGO user&#39;s manual · Kago</title>
+<meta name="description" content="The complete description of KAGO and UNKAGO: every switch, every format, every message.">
+<link rel="canonical" href="https://kago.tools/en/manual/">
+<meta property="og:site_name" content="Kago">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KAGO and UNKAGO user&#39;s manual · Kago">
+<meta property="og:description" content="The complete description of KAGO and UNKAGO: every switch, every format, every message.">
+<meta property="og:url" content="https://kago.tools/en/manual/">
+<meta property="og:image" content="https://kago.tools/img/preview-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kago&#39;s home page: the MSX logo, one pair of tools for every archive format on the MSX, and an MSX-DOS2 screen packing a directory tree into a ZIP archive.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script>
+var root = document.documentElement;
+root.classList.add("js");
+try {
+  var saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved;
+} catch (e) {}
+function toggleTheme() {
+  var system = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  var next = (root.dataset.theme || system) == "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  try {
+    if (next == system) localStorage.removeItem("theme");
+    else localStorage.setItem("theme", next);
+  } catch (e) {}
+}
+</script>
+<link rel="alternate" hreflang="en" href="https://kago.tools/en/manual/">
+<link rel="alternate" hreflang="ja" href="https://kago.tools/ja/manual/">
+<script defer data-domain="kago.tools" src="https://analytics.lavnet.org/js/script.file-downloads.hash.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+<header class="top"><div class="wrap topin">
+  <a class="brand" href="/en/"><svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path class="wa" d="M24.4 18L27.5 15.8L28.9 14.9L29.2 14.6L31.6 13.4L30.2 14.1L28.6 15.1L27 16.7L27 83.3L28.6 84.9L30.2 85.9L31.6 86.6L29.2 85.4L28.9 85.1L27.5 84.2L23 80.9L21.6 79.6L20.1 78L18.5 76.2L16.9 74.2L15.2 71.7L13.6 68.9L12.2 65.8L10.9 62.2L10 58.3L10 41.7L10.9 37.8L12.2 34.2L13.6 31.1L15.2 28.3L16.9 25.8L18.5 23.8L20.1 22L21.6 20.4L23 19.1ZM45.5 9.2L46.1 9.2L46.6 9.1L47.8 9.1L48 9L48 91L47.8 90.9L46.6 90.9L46.1 90.8L45.5 90.8L38.9 89.5L38.4 89.3L37.9 89.2L36.9 88.8L36.4 88.7L34.3 87.9L31.5 86.6L31 83.3L31 16.7L31.5 13.4L34.3 12.1ZM52.2 9.1L53.4 9.1L53.9 9.2L54.5 9.2L65.7 12.1L68.5 13.4L69 16.7L69 83.3L68.5 86.6L65.7 87.9L63.6 88.7L63.1 88.8L62.1 89.2L61.6 89.3L61.1 89.5L54.5 90.8L53.9 90.8L53.4 90.9L52.2 90.9L52 91L52 9ZM70.8 14.6L71.1 14.9L72.5 15.8L77 19.1L78.4 20.4L79.9 22L81.5 23.8L83.1 25.8L84.8 28.3L86.4 31.1L87.8 34.2L89.1 37.8L90 41.7L90 58.3L89.1 62.2L87.8 65.8L86.4 68.9L84.8 71.7L83.1 74.2L81.5 76.2L79.9 78L78.4 79.6L77 80.9L72.5 84.2L71.1 85.1L70.8 85.4L68.4 86.6L69.8 85.9L71.4 84.9L73 83.3L73 16.7L71.4 15.1L69.8 14.1L68.4 13.4Z"/><path class="wb" d="M18 24.4L19.1 23L20.4 21.6L22 20.1L23.8 18.5L25.8 16.9L28.3 15.2L31.1 13.6L34.2 12.2L37.8 10.9L41.7 10L58.3 10L62.2 10.9L65.8 12.2L68.9 13.6L71.7 15.2L74.2 16.9L76.2 18.5L78 20.1L79.6 21.6L80.9 23L84.2 27.5L85.1 28.9L85.4 29.2L86.6 31.6L85.9 30.2L84.9 28.6L83.3 27L16.7 27L15.1 28.6L14.1 30.2L13.4 31.6L14.6 29.2L14.9 28.9L15.8 27.5ZM12.1 34.3L13.4 31.5L16.7 31L83.3 31L86.6 31.5L87.9 34.3L88.7 36.4L88.8 36.9L89.2 37.9L89.3 38.4L89.5 38.9L90.8 45.5L90.8 46.1L90.9 46.6L90.9 47.8L91 48L9 48L9.1 47.8L9.1 46.6L9.2 46.1L9.2 45.5ZM9 52L91 52L90.9 52.2L90.9 53.4L90.8 53.9L90.8 54.5L89.5 61.1L89.3 61.6L89.2 62.1L88.8 63.1L88.7 63.6L87.9 65.7L86.6 68.5L83.3 69L16.7 69L13.4 68.5L12.1 65.7L9.2 54.5L9.2 53.9L9.1 53.4L9.1 52.2ZM13.4 68.4L14.1 69.8L15.1 71.4L16.7 73L83.3 73L84.9 71.4L85.9 69.8L86.6 68.4L85.4 70.8L85.1 71.1L84.2 72.5L80.9 77L79.6 78.4L78 79.9L76.2 81.5L74.2 83.1L71.7 84.8L68.9 86.4L65.8 87.8L62.2 89.1L58.3 90L41.7 90L37.8 89.1L34.2 87.8L31.1 86.4L28.3 84.8L25.8 83.1L23.8 81.5L22 79.9L20.4 78.4L19.1 77L15.8 72.5L14.9 71.1L14.6 70.8Z"/><path class="wa" d="M21 21L21.3 20.8L23.9 18.3L24.3 18.1L27.3 15.8L27.8 15.6L29.1 14.7L27.2 15.9L27 16.4L27 27L16.4 27L15.9 27.2L14.7 29.1L15.6 27.8L15.8 27.3L18.1 24.3L18.3 23.9L20.8 21.3ZM10 52L27 52L27 69L14.2 69L13.6 68.9L12.7 67.1L12.5 66.5L11.8 64.8L11.5 64.2L10.3 60.4L10.2 59.7L10 59.1ZM31 31L48 31L48 48L31 48ZM31 73L48 73L48 90L40.9 90L40.3 89.8L39.6 89.7L35.8 88.5L35.2 88.2L33.5 87.5L32.9 87.3L31.1 86.4L31 85.8ZM52 10L59.1 10L59.7 10.2L60.4 10.3L64.2 11.5L64.8 11.8L66.5 12.5L67.1 12.7L68.9 13.6L69 14.2L69 27L52 27ZM52 52L69 52L69 69L52 69ZM73 31L85.8 31L86.4 31.1L87.3 32.9L87.5 33.5L88.2 35.2L88.5 35.8L89.7 39.6L89.8 40.3L90 40.9L90 48L73 48ZM73 73L83.6 73L84.1 72.8L84.4 72.2L84.2 72.7L81.9 75.7L81.7 76.1L76.1 81.7L75.7 81.9L72.7 84.2L72.2 84.4L72.8 84.1L73 83.6Z"/><circle class="ring" cx="50" cy="50" r="44" fill="none" stroke-width="6"/></svg>
+<span>Kago</span></a>
+  <nav class="mainnav">
+    <a href="/en/download/">Download</a>
+    <a href="/en/examples/">Examples</a>
+    <a href="/en/manual/" class="cur" aria-current="page">Manual</a>
+    <a href="https://github.com/javilm/kago">GitHub</a>
+  </nav>
+  <div class="tools">
+  <a class="langsw" href="/ja/manual/" lang="ja" hreflang="ja">日本語</a>
+  <button class="themesw" type="button" onclick="toggleTheme()" title="Switch between light and dark" aria-label="Switch between light and dark">
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+  </button>
+  </div>
+</div></header>
+
+<main id="main">
+
+<div class="wrap manual">
+  <nav class="toc" aria-label="Contents">
+    <p>Contents</p>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-before-you-start">1. Before you start</a></li>
+    <li><a href="#2-kago-the-compressor">2. KAGO, the compressor</a>
+      <ul>
+        <li><a href="#21-the-format">2.1 The format</a></li>
+        <li><a href="#22-naming-the-files">2.2 Naming the files</a></li>
+        <li><a href="#23-packing">2.3 Packing</a></li>
+        <li><a href="#24-an-archive-that-exists">2.4 An archive that exists</a></li>
+        <li><a href="#25-adding-to-an-archive-a">2.5 Adding to an archive (/A)</a></li>
+        <li><a href="#26-memory">2.6 Memory</a></li>
+        <li><a href="#27-pma-archives">2.7 PMA archives</a></li>
+        <li><a href="#28-dates-in-lzh-archives">2.8 Dates in LZH archives</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-unkago-the-decompressor">3. UNKAGO, the decompressor</a>
+      <ul>
+        <li><a href="#31-listing-l">3.1 Listing (/L)</a></li>
+        <li><a href="#32-extracting">3.2 Extracting</a></li>
+        <li><a href="#33-some-members-only">3.3 Some members only</a></li>
+        <li><a href="#34-another-destination-d">3.4 Another destination (/D)</a></li>
+        <li><a href="#35-disk-space">3.5 Disk space</a></li>
+        <li><a href="#36-memory">3.6 Memory</a></li>
+        <li><a href="#37-long-filenames">3.7 Long filenames</a></li>
+        <li><a href="#38-what-unkago-reads">3.8 What UNKAGO reads</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-messages">4. Messages</a></li>
+    <li><a href="#5-examples">5. Examples</a></li>
+    <li><a href="#6-about">6. About</a></li>
+  </ul>
+</nav>
+  </nav>
+  <article class="article">
+    <h1>KAGO and UNKAGO user&#39;s manual</h1>
+    <p><code>KAGO</code> creates archives and <code>UNKAGO</code> lists and extracts them. Both run under
+MSX-DOS2 (or Nextor) and handle three archive formats: ZIP, LZH (also called
+LHA) and PMA. This manual describes everything they do. For installation and
+a quick tour, see <code>README.md</code> (<code>README.TXT</code> on the MSX).</p>
+<h2 id="1-before-you-start">1. Before you start</h2>
+<p><strong>Requirements.</strong> MSX-DOS2 or Nextor, and the memory mapper that MSX-DOS2
+always has. Under MSX-DOS1 both tools print &ldquo;needs MSX-DOS2 or Nextor&rdquo; and
+stop.</p>
+<p><strong>Memory.</strong> The tools are small programs, but packing and unpacking need
+working memory, which they take from the mapper: as much as is free when
+they run, never an assumed amount. A RAM disk, or a resident program, leaves
+less. Sections 2.6 and 3.6 say how much each tool wants and what happens with
+less.</p>
+<p><strong>The command line.</strong> Both tools are run from the MSX-DOS2 prompt or from a
+batch file:</p>
+<pre tabindex="0"><code>KAGO [switches] archive files...
+UNKAGO [switches] archive [members...]
+</code></pre><ul>
+<li>A <strong>switch</strong> is a word that starts with <code>/</code>, in upper or lower case:
+<code>/L</code> and <code>/l</code> are the same. Switches may go anywhere on the line.</li>
+<li>A switch the tool does not know stops it with MSX-DOS2&rsquo;s own message,
+<code>*** Invalid option</code>, before it does anything.</li>
+<li><code>/?</code>, or nothing at all after the tool&rsquo;s name, prints the usage. <code>/V</code>
+prints the banner (name, version, copyright, web address) and nothing
+else.</li>
+<li>Without <code>/Q</code>, both tools print their banner first, then a blank line,
+then whatever they have to say. <code>/Q</code> (quiet) leaves out the banner and the
+progress percentage.</li>
+</ul>
+<p><strong>Formats and methods.</strong></p>
+<table>
+	<thead>
+			<tr>
+					<th>Format</th>
+					<th>Extensions</th>
+					<th><code>KAGO</code> writes</th>
+					<th><code>UNKAGO</code> reads</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>ZIP</td>
+					<td><code>.ZIP</code></td>
+					<td>deflate; stored</td>
+					<td>deflate; stored</td>
+			</tr>
+			<tr>
+					<td>LZH</td>
+					<td><code>.LZH</code>, <code>.LHA</code></td>
+					<td><code>-lh5-</code>; <code>-lh0-</code> (stored)</td>
+					<td><code>-lh0-</code>, <code>-lh1-</code>, <code>-lh4-</code>, <code>-lh5-</code>, <code>-lh6-</code>, <code>-lh7-</code></td>
+			</tr>
+			<tr>
+					<td>PMA</td>
+					<td><code>.PMA</code> (<code>.COM</code> when self-extracting)</td>
+					<td><code>-pm2-</code>; <code>-pm0-</code> (stored)</td>
+					<td><code>-pm0-</code>, <code>-pm1-</code>, <code>-pm2-</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>LZH and LHA are the same format; <code>.LHA</code> is the name the Amiga used. PMA is
+the format of PMarc and PMARC2 on the MSX, read by PMEXT.</p>
+<h2 id="2-kago-the-compressor">2. KAGO, the compressor</h2>
+<pre tabindex="0"><code>KAGO [switches] archive files...
+</code></pre><p><code>KAGO</code> creates <code>archive</code> and puts in it the files and directories named
+after it.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Switch</th>
+					<th>What it does</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>/A</code></td>
+					<td>add to the archive: new files go in, files with the same path replace the old ones</td>
+			</tr>
+			<tr>
+					<td><code>/F:fmt</code></td>
+					<td>the format: <code>/F:ZIP</code>, <code>/F:LZH</code> or <code>/F:PMA</code>. Without it, the archive&rsquo;s extension decides</td>
+			</tr>
+			<tr>
+					<td><code>/0</code></td>
+					<td>store the files, without packing them</td>
+			</tr>
+			<tr>
+					<td><code>/Y</code></td>
+					<td>proceed without asking when memory is short</td>
+			</tr>
+			<tr>
+					<td><code>/Q</code></td>
+					<td>quiet: no banner, no progress</td>
+			</tr>
+			<tr>
+					<td><code>/V</code></td>
+					<td>the banner, and nothing else</td>
+			</tr>
+			<tr>
+					<td><code>/?</code></td>
+					<td>the usage</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="21-the-format">2.1 The format</h3>
+<p><code>/F:ZIP</code>, <code>/F:LZH</code> or <code>/F:PMA</code> chooses the format, whatever the archive is
+called. Without <code>/F:</code>, the extension does: <code>.ZIP</code>; <code>.LZH</code> or <code>.LHA</code>; <code>.PMA</code>.
+With neither, <code>KAGO</code> stops and says how to choose:</p>
+<pre tabindex="0"><code>Which format? Name the archive .LZH, .LHA, .PMA or
+.ZIP, or use /F:LZH, /F:PMA or /F:ZIP.
+</code></pre><h3 id="22-naming-the-files">2.2 Naming the files</h3>
+<p>Each word after the archive&rsquo;s name is a file or a directory, and may use
+<code>*</code> and <code>?</code> as MSX-DOS2 does: <code>*.*</code>, <code>GAME?.ROM</code>, <code>B:\DOCS\*.TXT</code>.</p>
+<ul>
+<li><strong>Hidden and system files</strong> are found and added like the others.</li>
+<li><strong>A directory</strong> is added whole: an entry for the directory itself, then
+everything in it, at every depth. Naming <code>PROJECT</code> adds the whole
+<code>PROJECT</code> tree; <code>*.*</code> adds the files <em>and</em> the subdirectories of the
+current directory, with everything in them.</li>
+<li><strong>Paths are stored as you typed them, less the drive.</strong> <code>KAGO A.ZIP WORK\*.TXT</code> stores <code>WORK\NOTES.TXT</code>; <code>B:\WORK\*.TXT</code> stores the same: the
+drive, and a leading <code>\</code>, are left out, so the archive extracts anywhere.
+Names are stored in upper case, as MSX-DOS2 keeps them.</li>
+<li><strong><code>..</code> is refused</strong> in a path (<code>..\OTHER\*.*</code>): it would make the file
+extract outside the directory it is extracted into. Change to the parent
+directory and name it from there instead.</li>
+<li><strong>The archive itself</strong> is never added, even if a wildcard matches it, and
+a file named twice is added once (the second time: &ldquo;added already&rdquo;).</li>
+<li><strong>A word that matches nothing</strong> is reported (&ldquo;Skipping X: File not
+found&rdquo;), and the others still go in. If nothing at all was added, no
+archive is left: &ldquo;Nothing to add: X was not written.&rdquo;</li>
+</ul>
+<p>Each file gets one line:</p>
+<pre tabindex="0"><code>Adding WORK\NOTES.TXT OK
+</code></pre><p>On the screen, a percentage shows how far through each file <code>KAGO</code> is.</p>
+<h3 id="23-packing">2.3 Packing</h3>
+<p>Each file is packed with the format&rsquo;s method (deflate, <code>-lh5-</code> or <code>-pm2-</code>).
+A file that would not get smaller, such as one that is packed already (an
+archive, a compressed image), is stored instead, so no file ever grows by
+more than its header. Empty files are stored.</p>
+<p>With <code>/0</code>, every file is stored without trying to pack it. It is much
+faster, and the right choice for files that are packed already.</p>
+<p>Each file&rsquo;s date and time, and its read-only, hidden and system attributes,
+are kept in the archive, and <code>UNKAGO</code> gives them back.</p>
+<p>How well it packs, compared with the tools on modern computers: <code>-lh5-</code>
+within half a per cent of <code>lha</code>, deflate about 2% larger than <code>zip -6</code>.
+<code>-pm2-</code> packs most files a little better than <code>-lh5-</code>, but large files that
+repeat a lot somewhat worse, because PMA&rsquo;s format starts new code tables
+every 4 KB.</p>
+<h3 id="24-an-archive-that-exists">2.4 An archive that exists</h3>
+<p><code>KAGO</code> never overwrites an archive. If the archive is there already, it
+stops without touching it:</p>
+<pre tabindex="0"><code>GAMES.ZIP already exists.
+</code></pre><p>Delete it first to make a new one, or use <code>/A</code> to add to it.</p>
+<h3 id="25-adding-to-an-archive-a">2.5 Adding to an archive (/A)</h3>
+<p>With <code>/A</code>, the files named are added to an archive that is there, in any of
+the three formats. A file whose path is already in the archive replaces the
+old member (&ldquo;Replacing&rdquo; instead of &ldquo;Adding&rdquo;); the other members are kept as
+they were, byte for byte. If the archive is not there, it is created.</p>
+<p><code>KAGO</code> writes the new archive beside the old one, as a temporary file with
+the same name and the extension <code>.$$$</code>; then it deletes the old one and
+renames the new one into its place. So the disk needs room for both while it
+works, and if anything goes wrong, the old archive is left as it was. If the
+rename fails, <code>KAGO</code> says where the new archive is.</p>
+<p>An archive that <code>KAGO</code> cannot read as the format asked for is refused, and
+left as it was.</p>
+<h3 id="26-memory">2.6 Memory</h3>
+<p>For full-strength packing, <code>KAGO</code> needs this much free mapper memory:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Format</th>
+					<th>Full packing</th>
+					<th>Packing with a smaller window</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>LZH, PMA</td>
+					<td>64 KB</td>
+					<td>48 KB</td>
+			</tr>
+			<tr>
+					<td>ZIP</td>
+					<td>80 KB</td>
+					<td>64 KB</td>
+			</tr>
+	</tbody>
+</table>
+<p>With less than full, it says so and asks before writing anything:</p>
+<pre tabindex="0"><code>Full packing needs 64 KB of mapper memory, but only 48 KB are free.
+Pack with less? (Y/N)
+</code></pre><p>Packing with less searches a 4 KB window instead of 8 KB: the archive is a
+little larger, and just as valid. With less than that, it offers to store
+the files instead (&ldquo;Store the files? (Y/N)&rdquo;). <code>N</code> stops, with nothing
+written.</p>
+<p><code>/Y</code> answers yes without asking: <code>KAGO</code> packs as well as the memory allows,
+or stores. Use it in batch files.</p>
+<h3 id="27-pma-archives">2.7 PMA archives</h3>
+<p>PMA archives are written as PMARC2 writes them, and PMEXT extracts them.
+The format sets two limits:</p>
+<ul>
+<li><strong>No directories.</strong> A directory that a wildcard finds is skipped, with a
+line (&ldquo;Skipping SUB: PMA archives have no directories.&rdquo;). A directory
+named on the command line, or a path with a directory in it
+(<code>WORK\A.TXT</code>), stops <code>KAGO</code> before it writes anything. To pack a
+directory&rsquo;s files into a PMA archive, change to that directory first.</li>
+<li><strong>No empty files.</strong> PMEXT cannot extract an empty member, so they are
+skipped, with a line, as PMARC2 skips them.</li>
+</ul>
+<p>PMEXT pads each file it extracts with <code>1Ah</code> bytes to a multiple of 128
+bytes, as CP/M did. <code>UNKAGO</code> gives the exact size back.</p>
+<h3 id="28-dates-in-lzh-archives">2.8 Dates in LZH archives</h3>
+<p>LZH archives record the time in UTC, and the MSX does not know its time
+zone, so <code>KAGO</code> stores the MSX&rsquo;s time as it is. <code>UNKAGO</code> gives the same time
+back; <code>lha</code> on a modern computer shows it shifted by your time zone. ZIP and
+PMA archives store the local time, and have no such shift.</p>
+<h2 id="3-unkago-the-decompressor">3. UNKAGO, the decompressor</h2>
+<pre tabindex="0"><code>UNKAGO [switches] archive [members...]
+</code></pre><p><code>UNKAGO</code> extracts the archive&rsquo;s members into the current directory, or
+lists them. It recognises the format by itself, whatever the archive is
+called.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Switch</th>
+					<th>What it does</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>/L</code></td>
+					<td>list the archive, extract nothing</td>
+			</tr>
+			<tr>
+					<td><code>/D:path</code></td>
+					<td>extract into <code>path</code>, created if missing</td>
+			</tr>
+			<tr>
+					<td><code>/O</code></td>
+					<td>overwrite files that already exist</td>
+			</tr>
+			<tr>
+					<td><code>/Q</code></td>
+					<td>quiet: no banner, no progress</td>
+			</tr>
+			<tr>
+					<td><code>/V</code></td>
+					<td>the banner, and nothing else</td>
+			</tr>
+			<tr>
+					<td><code>/?</code></td>
+					<td>the usage</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="31-listing-l">3.1 Listing (/L)</h3>
+<pre class="session"><code><span class="pr">A&gt;</span><span class="cmd">UNKAGO /L PROJECT.LZH</span>
+    Packed   Original Method Date             Name
+---------- ---------- ------ ---------------- ------------
+         0          0 -lhd-  2026-10-07 10:00 PROJECT\
+      4310      11873 -lh5-  2026-10-07 09:58 PROJECT\MAIN.AS
+       212        388 -lh5-  2026-10-07 09:12 PROJECT\README.TXT
+---------- ---------- ------                  ------------
+      4522      12261        3 files</code></pre>
+<p>One line per member: its packed size, its original size, its method, its
+date and time, and its path; a directory ends in <code>\</code>. The last line gives
+the totals. ZIP&rsquo;s methods show as <code>deflat</code> and <code>stored</code>.</p>
+<p>The method tells you how much memory extracting will need (section 3.6),
+and the total original size, how much disk space.</p>
+<h3 id="32-extracting">3.2 Extracting</h3>
+<p>Without <code>/L</code>, every member is extracted, each with one line:</p>
+<pre tabindex="0"><code>Extracting PROJECT\MAIN.AS OK
+</code></pre><ul>
+<li><strong>Directories</strong> in the members&rsquo; paths are created as they are needed,
+and directory members are created even when empty.</li>
+<li><strong>Dates, times and attributes</strong> (read-only, hidden, system) are restored.</li>
+<li><strong>Each file&rsquo;s CRC is checked.</strong> A file whose CRC does not match is
+deleted, and its line ends in <code>CRC error</code>.</li>
+<li><strong>An existing file is never replaced</strong>, unless <code>/O</code> is given; it is
+skipped instead (&ldquo;Skipping X: it already exists&rdquo;). With <code>/O</code> it is
+overwritten.</li>
+<li><strong>A member <code>UNKAGO</code> cannot extract</strong> (a method it does not have, or an
+encrypted ZIP member) is skipped with a line, and the others are
+extracted.</li>
+</ul>
+<h3 id="33-some-members-only">3.3 Some members only</h3>
+<p>Names after the archive&rsquo;s choose which members to list or extract. They are
+matched against each member&rsquo;s whole path, in either case:</p>
+<ul>
+<li><code>*</code> matches any run of characters, dots and <code>\</code> included, and <code>?</code> any one
+character. So <code>*.TXT</code> matches every <code>.TXT</code> file at any depth, <code>*</code> alone
+matches everything, and <code>*.*</code> only the names with a dot.</li>
+<li>A directory&rsquo;s name chooses everything under it: <code>UNKAGO A.ZIP PROJECT\SRC</code>
+extracts the directory <code>PROJECT\SRC</code> and all it holds.</li>
+<li>A name that matches nothing is reported (&ldquo;Not in the archive: X&rdquo;).</li>
+</ul>
+<pre class="session"><code><span class="pr">A&gt;</span><span class="cmd">UNKAGO GAMES.LZH *.ROM README.TXT</span></code></pre>
+<p>Only the chosen members count towards the checks of section 3.5.</p>
+<h3 id="34-another-destination-d">3.4 Another destination (/D)</h3>
+<p><code>/D:path</code> extracts into <code>path</code> instead of the current directory:</p>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>/D:B:</code></td>
+					<td>the current directory of drive B:</td>
+			</tr>
+			<tr>
+					<td><code>/D:B:\GAMES</code></td>
+					<td>the directory <code>\GAMES</code> on drive B:</td>
+			</tr>
+			<tr>
+					<td><code>/D:\TEMP</code></td>
+					<td><code>\TEMP</code> on the current drive</td>
+			</tr>
+			<tr>
+					<td><code>/D:TEMP\FILES</code></td>
+					<td><code>TEMP\FILES</code> under the current directory</td>
+			</tr>
+	</tbody>
+</table>
+<p>A destination that does not exist is created, with any directories above
+it, once the checks of section 3.5 have passed.</p>
+<h3 id="35-disk-space">3.5 Disk space</h3>
+<p>Before writing anything, <code>UNKAGO</code> adds up the space the members will take,
+in whole clusters, the new directories included, and compares it with the
+free space on the destination drive. If it does not fit, it says how much is
+needed and how much is free, and writes nothing:</p>
+<pre tabindex="0"><code>Extracting this archive would take 412 KB on disk, but only 287 KB are free
+on A:.
+</code></pre><p>Extract some members only (section 3.3), or onto another disk (section 3.4).</p>
+<p>If the disk fills up anyway (when files are overwritten, or a floppy&rsquo;s root
+directory runs out of entries), <code>UNKAGO</code> deletes the file it was writing,
+stops, and says which members it did not extract. The files extracted until
+then stay.</p>
+<h3 id="36-memory">3.6 Memory</h3>
+<p>Each method needs this much free mapper memory to extract:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Method</th>
+					<th>Memory</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>stored (<code>-lh0-</code>, <code>-pm0-</code>, ZIP stored), directories</td>
+					<td>none</td>
+			</tr>
+			<tr>
+					<td><code>-lh1-</code>, <code>-lh4-</code>, <code>-lh5-</code>, <code>-pm2-</code></td>
+					<td>32 KB</td>
+			</tr>
+			<tr>
+					<td><code>-lh6-</code>, <code>-pm1-</code>, deflate</td>
+					<td>48 KB</td>
+			</tr>
+			<tr>
+					<td><code>-lh7-</code></td>
+					<td>80 KB</td>
+			</tr>
+	</tbody>
+</table>
+<p><code>UNKAGO</code> works out the most that the chosen members need, and if that is not
+free, it says so before writing anything:</p>
+<pre tabindex="0"><code>Extracting this archive needs 80 KB of mapper memory, but only 48 KB are
+free.
+</code></pre><p>Free some memory (a smaller RAM disk, fewer resident programs), or extract
+the members that need less.</p>
+<h3 id="37-long-filenames">3.7 Long filenames</h3>
+<p>Archives made on modern computers often hold names that do not fit
+MSX-DOS&rsquo;s 8.3 form. <code>UNKAGO</code> shortens them the way Windows shortens long
+names for MS-DOS, and says so:</p>
+<pre tabindex="0"><code>Extracting longfilename.txt as LONGFI~1.TXT OK
+Extracting my file.c as MYFILE~1.C OK
+Extracting Long Directory Name\ as LONGDI~1\ OK
+</code></pre><p>The name is cut to six characters and given a <code>~</code> and a number, and the
+extension is cut to three; spaces and extra dots are left out, and
+characters that MSX-DOS does not allow become <code>_</code>. The numbers go up until
+each name is different from the others in the same directory of the
+archive, so the same archive always gives the same names. A name that fits
+already is used as it is, in upper case.</p>
+<p>Japanese names in Shift-JIS are kept as they are when they fit.</p>
+<h3 id="38-what-unkago-reads">3.8 What UNKAGO reads</h3>
+<ul>
+<li><strong>LZH</strong> archives with level 0, 1 and 2 headers, made by LHarc, LHA, <code>lha</code>
+on modern computers, and <code>KAGO</code>. Level 3 headers are refused.</li>
+<li><strong>PMA</strong> archives made by PMarc (<code>-pm1-</code>) and PMARC2 (<code>-pm2-</code>), and
+self-extracting PMA files (<code>.COM</code>): <code>UNKAGO</code> lists and extracts them
+without running them, leaving out the extractor they carry.</li>
+<li><strong>ZIP</strong> archives with stored and deflate members, those whose sizes come
+after the data included. Not read: ZIP64 (over 4 GB), split archives, and
+encrypted members.</li>
+</ul>
+<p>A file that is none of these is refused: &ldquo;Not an LZH or ZIP archive.&rdquo;</p>
+<h2 id="4-messages">4. Messages</h2>
+<p>Messages about a shortage always give the amount needed and the amount
+available. Amounts are in KB, or in MB from 1024 KB.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Message</th>
+					<th>Meaning</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>X already exists.</code></td>
+					<td><code>KAGO</code>: the archive is there; delete it or use <code>/A</code></td>
+			</tr>
+			<tr>
+					<td><code>Nothing to add: X was not written.</code></td>
+					<td><code>KAGO</code>: no file was found</td>
+			</tr>
+			<tr>
+					<td><code>Skipping X: File not found</code></td>
+					<td><code>KAGO</code>: a word matched nothing</td>
+			</tr>
+			<tr>
+					<td><code>X: a path with .. cannot be stored</code></td>
+					<td><code>KAGO</code>: see section 2.2</td>
+			</tr>
+			<tr>
+					<td><code>X: PMA archives have no directories.</code></td>
+					<td><code>KAGO</code>: see section 2.7</td>
+			</tr>
+			<tr>
+					<td><code>Full packing needs ...</code></td>
+					<td><code>KAGO</code>: see section 2.6</td>
+			</tr>
+			<tr>
+					<td><code>Skipping X: it already exists</code></td>
+					<td><code>UNKAGO</code>: use <code>/O</code> to overwrite</td>
+			</tr>
+			<tr>
+					<td><code>Extracting X CRC error</code></td>
+					<td><code>UNKAGO</code>: the member is damaged; the file was deleted</td>
+			</tr>
+			<tr>
+					<td><code>Not in the archive: X</code></td>
+					<td><code>UNKAGO</code>: a name matched no member</td>
+			</tr>
+			<tr>
+					<td><code>Extracting this archive would take ...</code></td>
+					<td><code>UNKAGO</code>: see section 3.5</td>
+			</tr>
+			<tr>
+					<td><code>Extracting this archive needs ...</code></td>
+					<td><code>UNKAGO</code>: see section 3.6</td>
+			</tr>
+			<tr>
+					<td><code>*** Invalid option</code></td>
+					<td>a switch the tool does not take</td>
+			</tr>
+			<tr>
+					<td><code>*** Missing parameter</code></td>
+					<td><code>KAGO</code> with an archive but no files; <code>UNKAGO /L</code> without an archive, or <code>/D</code> without a path</td>
+			</tr>
+	</tbody>
+</table>
+<p>Other errors from the disk (<code>Disk full</code>, <code>Write protected disk</code>&hellip;) are
+MSX-DOS2&rsquo;s own, with its usual messages.</p>
+<h2 id="5-examples">5. Examples</h2>
+<pre tabindex="0"><code>KAGO GAMES.ZIP *.*                  everything here, into a ZIP archive
+KAGO DOCS.LZH *.TXT                 the text files, into an LZH archive
+KAGO TOOLS.PMA EDIT.COM EDIT.DOC    two files, into a PMA archive
+KAGO PROJECT.ZIP PROJECT            a whole directory tree
+KAGO WORK.LZH B:\WORK\*.*           a tree from another drive
+KAGO /A GAMES.ZIP README.TXT        add or replace one file
+KAGO /F:LZH BACKUP.DAT *.*          LZH, whatever the name
+KAGO /0 PICS.ZIP *.SC8              store, don&#39;t pack
+KAGO /Y /Q BACKUP.LZH A:\WORK       for a batch file
+
+UNKAGO /L GAMES.ZIP                 list
+UNKAGO GAMES.ZIP                    extract here
+UNKAGO /D:B:\GAMES GAMES.ZIP        extract into B:\GAMES
+UNKAGO /O GAMES.ZIP                 extract, replacing existing files
+UNKAGO DOCS.LZH *.DOC               only the .DOC files
+UNKAGO PROJECT.ZIP PROJECT\SRC      only one directory of the tree
+UNKAGO TOOLS.COM                    a self-extracting PMA file
+</code></pre><h2 id="6-about">6. About</h2>
+<p>KAGO and UNKAGO 1.0.1. Copyright 2026 Javier Lavandeira. Licensed under the
+Apache License, Version 2.0. <a href="https://kago.tools">https://kago.tools</a></p>
+
+  </article>
+</div>
+
+</main>
+<footer><div class="wrap">
+  <span>KAGO / UNKAGO © 2026 <a href="https://www.lavandeira.net">Javier Lavandeira</a></span>
+  <span class="sep">·</span><span>Apache License 2.0</span>
+  <span class="sep">·</span><span><a href="https://github.com/javilm/kago">Source on GitHub</a></span>
+  <span class="sep">·</span><span>Built on the MSX with <a href="https://tatara.tools">Tatara</a></span>
+</div>
+<div class="wrap legal">
+  <span>MSX is a trademark of MSX Licensing Corporation.</span>
+  <span><a href="https://konamiman.com/msx/msx-e.html">Nextor is copyright © Néstor Soriano.</a></span>
+</div></footer>
+
+</body>
+</html>

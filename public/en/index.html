@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.167.0">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kago</title>
+<meta name="description" content="KAGO and UNKAGO create and extract ZIP, LZH and PMA archives on the MSX, under MSX-DOS2 or Nextor. One pair of tools for every format.">
+<link rel="canonical" href="https://kago.tools/en/">
+<meta property="og:site_name" content="Kago">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kago">
+<meta property="og:description" content="KAGO and UNKAGO create and extract ZIP, LZH and PMA archives on the MSX, under MSX-DOS2 or Nextor. One pair of tools for every format.">
+<meta property="og:url" content="https://kago.tools/en/">
+<meta property="og:image" content="https://kago.tools/img/preview-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kago&#39;s home page: the MSX logo, one pair of tools for every archive format on the MSX, and an MSX-DOS2 screen packing a directory tree into a ZIP archive.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script>
+var root = document.documentElement;
+root.classList.add("js");
+try {
+  var saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved;
+} catch (e) {}
+function toggleTheme() {
+  var system = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  var next = (root.dataset.theme || system) == "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  try {
+    if (next == system) localStorage.removeItem("theme");
+    else localStorage.setItem("theme", next);
+  } catch (e) {}
+}
+</script>
+<link rel="alternate" hreflang="en" href="https://kago.tools/en/">
+<link rel="alternate" hreflang="ja" href="https://kago.tools/ja/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","applicationCategory":"UtilitiesApplication","author":{"@type":"Person","name":"Javier Lavandeira","url":"https://www.lavandeira.net"},"description":"KAGO and UNKAGO create and extract ZIP, LZH and PMA archives on the MSX, under MSX-DOS2 or Nextor. One pair of tools for every format.","downloadUrl":"https://github.com/javilm/kago/releases/tag/v1.0.1","image":"https://kago.tools/img/preview-en.jpg","inLanguage":"en","license":"https://www.apache.org/licenses/LICENSE-2.0","name":"KAGO / UNKAGO","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"MSX-DOS2, Nextor","softwareVersion":"1.0.1","url":"https://kago.tools/en/"}</script>
+
+<script defer data-domain="kago.tools" src="https://analytics.lavnet.org/js/script.file-downloads.hash.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+<header class="top"><div class="wrap topin">
+  <a class="brand" href="/en/"><svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path class="wa" d="M24.4 18L27.5 15.8L28.9 14.9L29.2 14.6L31.6 13.4L30.2 14.1L28.6 15.1L27 16.7L27 83.3L28.6 84.9L30.2 85.9L31.6 86.6L29.2 85.4L28.9 85.1L27.5 84.2L23 80.9L21.6 79.6L20.1 78L18.5 76.2L16.9 74.2L15.2 71.7L13.6 68.9L12.2 65.8L10.9 62.2L10 58.3L10 41.7L10.9 37.8L12.2 34.2L13.6 31.1L15.2 28.3L16.9 25.8L18.5 23.8L20.1 22L21.6 20.4L23 19.1ZM45.5 9.2L46.1 9.2L46.6 9.1L47.8 9.1L48 9L48 91L47.8 90.9L46.6 90.9L46.1 90.8L45.5 90.8L38.9 89.5L38.4 89.3L37.9 89.2L36.9 88.8L36.4 88.7L34.3 87.9L31.5 86.6L31 83.3L31 16.7L31.5 13.4L34.3 12.1ZM52.2 9.1L53.4 9.1L53.9 9.2L54.5 9.2L65.7 12.1L68.5 13.4L69 16.7L69 83.3L68.5 86.6L65.7 87.9L63.6 88.7L63.1 88.8L62.1 89.2L61.6 89.3L61.1 89.5L54.5 90.8L53.9 90.8L53.4 90.9L52.2 90.9L52 91L52 9ZM70.8 14.6L71.1 14.9L72.5 15.8L77 19.1L78.4 20.4L79.9 22L81.5 23.8L83.1 25.8L84.8 28.3L86.4 31.1L87.8 34.2L89.1 37.8L90 41.7L90 58.3L89.1 62.2L87.8 65.8L86.4 68.9L84.8 71.7L83.1 74.2L81.5 76.2L79.9 78L78.4 79.6L77 80.9L72.5 84.2L71.1 85.1L70.8 85.4L68.4 86.6L69.8 85.9L71.4 84.9L73 83.3L73 16.7L71.4 15.1L69.8 14.1L68.4 13.4Z"/><path class="wb" d="M18 24.4L19.1 23L20.4 21.6L22 20.1L23.8 18.5L25.8 16.9L28.3 15.2L31.1 13.6L34.2 12.2L37.8 10.9L41.7 10L58.3 10L62.2 10.9L65.8 12.2L68.9 13.6L71.7 15.2L74.2 16.9L76.2 18.5L78 20.1L79.6 21.6L80.9 23L84.2 27.5L85.1 28.9L85.4 29.2L86.6 31.6L85.9 30.2L84.9 28.6L83.3 27L16.7 27L15.1 28.6L14.1 30.2L13.4 31.6L14.6 29.2L14.9 28.9L15.8 27.5ZM12.1 34.3L13.4 31.5L16.7 31L83.3 31L86.6 31.5L87.9 34.3L88.7 36.4L88.8 36.9L89.2 37.9L89.3 38.4L89.5 38.9L90.8 45.5L90.8 46.1L90.9 46.6L90.9 47.8L91 48L9 48L9.1 47.8L9.1 46.6L9.2 46.1L9.2 45.5ZM9 52L91 52L90.9 52.2L90.9 53.4L90.8 53.9L90.8 54.5L89.5 61.1L89.3 61.6L89.2 62.1L88.8 63.1L88.7 63.6L87.9 65.7L86.6 68.5L83.3 69L16.7 69L13.4 68.5L12.1 65.7L9.2 54.5L9.2 53.9L9.1 53.4L9.1 52.2ZM13.4 68.4L14.1 69.8L15.1 71.4L16.7 73L83.3 73L84.9 71.4L85.9 69.8L86.6 68.4L85.4 70.8L85.1 71.1L84.2 72.5L80.9 77L79.6 78.4L78 79.9L76.2 81.5L74.2 83.1L71.7 84.8L68.9 86.4L65.8 87.8L62.2 89.1L58.3 90L41.7 90L37.8 89.1L34.2 87.8L31.1 86.4L28.3 84.8L25.8 83.1L23.8 81.5L22 79.9L20.4 78.4L19.1 77L15.8 72.5L14.9 71.1L14.6 70.8Z"/><path class="wa" d="M21 21L21.3 20.8L23.9 18.3L24.3 18.1L27.3 15.8L27.8 15.6L29.1 14.7L27.2 15.9L27 16.4L27 27L16.4 27L15.9 27.2L14.7 29.1L15.6 27.8L15.8 27.3L18.1 24.3L18.3 23.9L20.8 21.3ZM10 52L27 52L27 69L14.2 69L13.6 68.9L12.7 67.1L12.5 66.5L11.8 64.8L11.5 64.2L10.3 60.4L10.2 59.7L10 59.1ZM31 31L48 31L48 48L31 48ZM31 73L48 73L48 90L40.9 90L40.3 89.8L39.6 89.7L35.8 88.5L35.2 88.2L33.5 87.5L32.9 87.3L31.1 86.4L31 85.8ZM52 10L59.1 10L59.7 10.2L60.4 10.3L64.2 11.5L64.8 11.8L66.5 12.5L67.1 12.7L68.9 13.6L69 14.2L69 27L52 27ZM52 52L69 52L69 69L52 69ZM73 31L85.8 31L86.4 31.1L87.3 32.9L87.5 33.5L88.2 35.2L88.5 35.8L89.7 39.6L89.8 40.3L90 40.9L90 48L73 48ZM73 73L83.6 73L84.1 72.8L84.4 72.2L84.2 72.7L81.9 75.7L81.7 76.1L76.1 81.7L75.7 81.9L72.7 84.2L72.2 84.4L72.8 84.1L73 83.6Z"/><circle class="ring" cx="50" cy="50" r="44" fill="none" stroke-width="6"/></svg>
+<span>Kago</span></a>
+  <nav class="mainnav">
+    <a href="/en/download/">Download</a>
+    <a href="/en/examples/">Examples</a>
+    <a href="/en/manual/">Manual</a>
+    <a href="https://github.com/javilm/kago">GitHub</a>
+  </nav>
+  <div class="tools">
+  <a class="langsw" href="/ja/" lang="ja" hreflang="ja">日本語</a>
+  <button class="themesw" type="button" onclick="toggleTheme()" title="Switch between light and dark" aria-label="Switch between light and dark">
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+  </button>
+  </div>
+</div></header>
+
+<main id="main">
+
+
+<section class="hero"><div class="wrap heroin">
+  <div class="herotext">
+    <img class="msxlogo" src="/img/msx-logo.png" width="200" height="83" alt="MSX">
+    <p class="eyebrow">Version 1.0.1 · ZIP · LZH · PMA · for MSX-DOS2 and Nextor</p>
+    <h1>One pair of tools for every archive format on the MSX<wbr></h1>
+    <p class="lead">KAGO packs files and whole directory trees into ZIP, LZH and PMA archives; UNKAGO lists and extracts them, including the ones made on modern computers that MSX tools could not open before. Instead of a different tool for each format, one simple pair of tools does it all.</p>
+    <p class="actions">
+      <a class="btn primary" href="/en/download/">Download KAGO 1.0.1</a>
+      <a class="btn" href="/en/manual/">Read the manual</a>
+    </p>
+    <p class="small">Free software under the Apache License 2.0. Written entirely in Z80 assembler.</p>
+  </div>
+  <figure class="term hero-term" id="carousel" aria-roledescription="carousel" aria-label="KAGO and UNKAGO at work on an MSX">
+<div class="termbar"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><b>MSX-DOS2</b><em class="fmt">ZIP</em></div>
+<div class="screen"><pre aria-live="off"><span class="pr">A:\&gt;</span><span class="cmd">kago game.zip game</span>
+KAGO LZH/PMA/ZIP Compressor v1.0.1
+Copyright (C) 2026 Javier Lavandeira
+https://kago.tools
+
+Adding GAME\ OK
+Adding GAME\GAME.COM OK
+Adding GAME\GAME.DAT OK
+Adding GAME\README.TXT OK
+Adding GAME\MUSIC\ OK
+Adding GAME\MUSIC\TITLE.MWM OK
+Adding GAME\MUSIC\STAGE1.MWM OK
+Adding GAME\MUSIC\STAGE2.MWM OK
+Adding GAME\SAVE\ OK
+
+<span class="pr">A:\&gt;</span></pre></div>
+<figcaption><span class="cap">KAGO packs a whole directory tree into a ZIP archive. The extension chooses the format.</span>
+<span class="dots" role="group" aria-label="Screens"><button type="button" aria-label="1: ZIP" aria-current="true"><i></i></button><button type="button" aria-label="2: LZH"><i></i></button><button type="button" aria-label="3: PMA"><i></i></button><button type="button" aria-label="4: ZIP"><i></i></button><button type="button" aria-label="5: PMA"><i></i></button><button type="button" aria-label="6: LZH"><i></i></button></span></figcaption>
+<script type="application/json" class="screens">[{"caption":"KAGO packs a whole directory tree into a ZIP archive. The extension chooses the format.","format":"ZIP","steps":[{"c":"kago game.zip game","o":"KAGO LZH/PMA/ZIP Compressor v1.0.1\nCopyright (C) 2026 Javier Lavandeira\nhttps://kago.tools\n\nAdding GAME\\ OK\nAdding GAME\\GAME.COM OK\nAdding GAME\\GAME.DAT OK\nAdding GAME\\README.TXT OK\nAdding GAME\\MUSIC\\ OK\nAdding GAME\\MUSIC\\TITLE.MWM OK\nAdding GAME\\MUSIC\\STAGE1.MWM OK\nAdding GAME\\MUSIC\\STAGE2.MWM OK\nAdding GAME\\SAVE\\ OK","p":"A:\\\u003e"}]},{"caption":"UNKAGO lists an archive made by lha today: -lh7- members, which older MSX tools cannot open.","format":"LZH","steps":[{"c":"unkago /l sdk.lzh","o":"UNKAGO LZH/PMA/ZIP Decompressor v1.0.1\nCopyright (C) 2026 Javier Lavandeira\nhttps://kago.tools\n\n    Packed   Original Method Date             Name\n---------- ---------- ------ ---------------- ------------\n         0          0 -lhd-  2026-09-14 21:03 sdk\\\n      5112      14837 -lh7-  2026-09-14 21:02 sdk\\README.md\n     19634      61402 -lh7-  2026-09-14 20:57 sdk\\msxbios.inc\n      8327      23119 -lh7-  2026-09-14 20:57 sdk\\msxdos2.inc\n         0          0 -lhd-  2026-09-14 21:03 sdk\\examples\\\n       911       2240 -lh6-  2026-09-12 18:44 sdk\\examples\\hello.as\n      4406       9984 -lh7-  2026-09-12 18:45 sdk\\examples\\sprites.as\n---------- ---------- ------                  ------------\n     38390     111582        7 files","p":"A:\\DOWNLOAD\u003e"}]},{"caption":"KAGO writes a PMA archive, packed with -pm2- as PMARC2 does, that PMEXT extracts.","format":"PMA","steps":[{"c":"kago tools.pma *.com *.doc","o":"KAGO LZH/PMA/ZIP Compressor v1.0.1\nCopyright (C) 2026 Javier Lavandeira\nhttps://kago.tools\n\nAdding EDIT.COM OK\nAdding FIND.COM OK\nAdding EDIT.DOC OK\nAdding FIND.DOC OK","p":"A:\\EDITOR\u003e"},{"c":"unkago /l tools.pma","o":"UNKAGO LZH/PMA/ZIP Decompressor v1.0.1\nCopyright (C) 2026 Javier Lavandeira\nhttps://kago.tools\n\n    Packed   Original Method Date             Name\n---------- ---------- ------ ---------------- ------------\n      9418      15744 -pm2-  2026-08-30 22:15 EDIT.COM\n      2190       3328 -pm2-  2026-08-30 22:16 FIND.COM\n      6025      17903 -pm2-  2026-08-29 19:40 EDIT.DOC\n      1342       3071 -pm2-  2026-08-29 19:52 FIND.DOC\n---------- ---------- ------                  ------------\n     18975      40046        4 files","p":"A:\\EDITOR\u003e"}]},{"caption":"UNKAGO extracts a ZIP made on a modern computer into B:\\BACKUP, creating the directories and shortening long names.","format":"ZIP","steps":[{"c":"unkago /d:b:\\backup rescue.zip","o":"UNKAGO LZH/PMA/ZIP Decompressor v1.0.1\nCopyright (C) 2026 Javier Lavandeira\nhttps://kago.tools\n\nExtracting Space Rescue\\ as SPACER~1\\ OK\nExtracting Space Rescue\\rescue.com as SPACER~1\\RESCUE.COM OK\nExtracting Space Rescue\\read me.txt as SPACER~1\\README~1.TXT OK\nExtracting Space Rescue\\gfx\\ as SPACER~1\\GFX\\ OK\nExtracting Space Rescue\\gfx\\title.sc5 as SPACER~1\\GFX\\TITLE.SC5 OK\nExtracting Space Rescue\\gfx\\sprites.dat as SPACER~1\\GFX\\SPRITES.DAT OK","p":"A:\\\u003e"}]},{"caption":"UNKAGO lists and extracts a self-extracting PMA file without running it: here, PMEXT's own distribution.","format":"PMA","steps":[{"c":"unkago /l pmext222.com","o":"UNKAGO LZH/PMA/ZIP Decompressor v1.0.1\nCopyright (C) 2026 Javier Lavandeira\nhttps://kago.tools\n\n    Packed   Original Method Date             Name\n---------- ---------- ------ ---------------- ------------\n       477        913 -pm2-  1991-07-23 18:25 !.\n      4989      12186 -pm2-  1991-07-23 18:07 PMEXT2.DOC\n      8140      12928 -pm2-  1991-07-23 17:30 PMEXT.COM\n---------- ---------- ------                  ------------\n     13606      26027        3 files","p":"A:\\\u003e"},{"c":"unkago /q pmext222.com","o":"Extracting !. OK\nExtracting PMEXT2.DOC OK\nExtracting PMEXT.COM OK","p":"A:\\\u003e"}]},{"caption":"/A adds to an archive in any format: files with the same path are replaced, the other members kept byte for byte.","format":"LZH","steps":[{"c":"kago /a docs.lzh *.txt","o":"KAGO LZH/PMA/ZIP Compressor v1.0.1\nCopyright (C) 2026 Javier Lavandeira\nhttps://kago.tools\n\nReplacing NOTES.TXT OK\nAdding TODO.TXT OK\nReplacing README.TXT OK","p":"A:\\WORK\u003e"},{"c":"unkago /l /q docs.lzh","o":"    Packed   Original Method Date             Name\n---------- ---------- ------ ---------------- ------------\n      2210       5390 -lh5-  2026-09-02 23:11 MANUAL.DOC\n      1873       4512 -lh5-  2026-10-06 21:48 NOTES.TXT\n       402        815 -lh5-  2026-10-05 08:30 TODO.TXT\n       690       1428 -lh5-  2026-10-06 22:02 README.TXT\n---------- ---------- ------                  ------------\n      5175      12145        4 files","p":"A:\\WORK\u003e"}]}]</script>
+</figure>
+<script src="/js/hero.js" defer></script>
+
+</div></section>
+<section class="band formats"><div class="wrap">
+  <h2>One tool, <wbr>all three formats<wbr></h2>
+  <p class="intro"><code>KAGO</code> takes the format from the archive&rsquo;s name, or from <code>/F:</code>. <code>UNKAGO</code> needs no switch at all: it recognises the format by itself, whatever the file is called.</p>
+  <div class="fmts">
+    <div class="fmtcard">
+      <h3>ZIP <span>.ZIP</span></h3>
+      <p>The format of every modern computer. Archives made by <code>zip</code>, Windows, macOS or Linux open on the MSX.</p>
+      <dl>
+        <dt>KAGO</dt><dd>deflate, or stored</dd>
+        <dt>UNKAGO</dt><dd>deflate and stored</dd>
+      </dl>
+    </div>
+    <div class="fmtcard">
+      <h3>LZH <span>.LZH .LHA</span></h3>
+      <p>The classic format of the MSX scene, and of <code>lha</code> today, with its 32 KB and 64 KB windows.</p>
+      <dl>
+        <dt>KAGO</dt><dd><code>-lh5-</code>, or stored</dd>
+        <dt>UNKAGO</dt><dd><code>-lh0-</code>, <code>-lh1-</code>, <code>-lh4-</code>, <code>-lh5-</code>, <code>-lh6-</code>, <code>-lh7-</code></dd>
+      </dl>
+    </div>
+    <div class="fmtcard">
+      <h3>PMA <span>.PMA .COM</span></h3>
+      <p>PMarc&rsquo;s format, made on the MSX for the MSX. Self-extracting <code>.COM</code> files open without running them.</p>
+      <dl>
+        <dt>KAGO</dt><dd><code>-pm2-</code>, or stored; PMEXT extracts them</dd>
+        <dt>UNKAGO</dt><dd><code>-pm0-</code>, <code>-pm1-</code>, <code>-pm2-</code></dd>
+      </dl>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Two programs, <wbr>in and out<wbr></h2>
+  <div class="two">
+    <div class="prog kago"><svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path class="wa" d="M24.4 18L27.5 15.8L28.9 14.9L29.2 14.6L31.6 13.4L30.2 14.1L28.6 15.1L27 16.7L27 83.3L28.6 84.9L30.2 85.9L31.6 86.6L29.2 85.4L28.9 85.1L27.5 84.2L23 80.9L21.6 79.6L20.1 78L18.5 76.2L16.9 74.2L15.2 71.7L13.6 68.9L12.2 65.8L10.9 62.2L10 58.3L10 41.7L10.9 37.8L12.2 34.2L13.6 31.1L15.2 28.3L16.9 25.8L18.5 23.8L20.1 22L21.6 20.4L23 19.1ZM45.5 9.2L46.1 9.2L46.6 9.1L47.8 9.1L48 9L48 91L47.8 90.9L46.6 90.9L46.1 90.8L45.5 90.8L38.9 89.5L38.4 89.3L37.9 89.2L36.9 88.8L36.4 88.7L34.3 87.9L31.5 86.6L31 83.3L31 16.7L31.5 13.4L34.3 12.1ZM52.2 9.1L53.4 9.1L53.9 9.2L54.5 9.2L65.7 12.1L68.5 13.4L69 16.7L69 83.3L68.5 86.6L65.7 87.9L63.6 88.7L63.1 88.8L62.1 89.2L61.6 89.3L61.1 89.5L54.5 90.8L53.9 90.8L53.4 90.9L52.2 90.9L52 91L52 9ZM70.8 14.6L71.1 14.9L72.5 15.8L77 19.1L78.4 20.4L79.9 22L81.5 23.8L83.1 25.8L84.8 28.3L86.4 31.1L87.8 34.2L89.1 37.8L90 41.7L90 58.3L89.1 62.2L87.8 65.8L86.4 68.9L84.8 71.7L83.1 74.2L81.5 76.2L79.9 78L78.4 79.6L77 80.9L72.5 84.2L71.1 85.1L70.8 85.4L68.4 86.6L69.8 85.9L71.4 84.9L73 83.3L73 16.7L71.4 15.1L69.8 14.1L68.4 13.4Z"/><path class="wb" d="M18 24.4L19.1 23L20.4 21.6L22 20.1L23.8 18.5L25.8 16.9L28.3 15.2L31.1 13.6L34.2 12.2L37.8 10.9L41.7 10L58.3 10L62.2 10.9L65.8 12.2L68.9 13.6L71.7 15.2L74.2 16.9L76.2 18.5L78 20.1L79.6 21.6L80.9 23L84.2 27.5L85.1 28.9L85.4 29.2L86.6 31.6L85.9 30.2L84.9 28.6L83.3 27L16.7 27L15.1 28.6L14.1 30.2L13.4 31.6L14.6 29.2L14.9 28.9L15.8 27.5ZM12.1 34.3L13.4 31.5L16.7 31L83.3 31L86.6 31.5L87.9 34.3L88.7 36.4L88.8 36.9L89.2 37.9L89.3 38.4L89.5 38.9L90.8 45.5L90.8 46.1L90.9 46.6L90.9 47.8L91 48L9 48L9.1 47.8L9.1 46.6L9.2 46.1L9.2 45.5ZM9 52L91 52L90.9 52.2L90.9 53.4L90.8 53.9L90.8 54.5L89.5 61.1L89.3 61.6L89.2 62.1L88.8 63.1L88.7 63.6L87.9 65.7L86.6 68.5L83.3 69L16.7 69L13.4 68.5L12.1 65.7L9.2 54.5L9.2 53.9L9.1 53.4L9.1 52.2ZM13.4 68.4L14.1 69.8L15.1 71.4L16.7 73L83.3 73L84.9 71.4L85.9 69.8L86.6 68.4L85.4 70.8L85.1 71.1L84.2 72.5L80.9 77L79.6 78.4L78 79.9L76.2 81.5L74.2 83.1L71.7 84.8L68.9 86.4L65.8 87.8L62.2 89.1L58.3 90L41.7 90L37.8 89.1L34.2 87.8L31.1 86.4L28.3 84.8L25.8 83.1L23.8 81.5L22 79.9L20.4 78.4L19.1 77L15.8 72.5L14.9 71.1L14.6 70.8Z"/><path class="wa" d="M21 21L21.3 20.8L23.9 18.3L24.3 18.1L27.3 15.8L27.8 15.6L29.1 14.7L27.2 15.9L27 16.4L27 27L16.4 27L15.9 27.2L14.7 29.1L15.6 27.8L15.8 27.3L18.1 24.3L18.3 23.9L20.8 21.3ZM10 52L27 52L27 69L14.2 69L13.6 68.9L12.7 67.1L12.5 66.5L11.8 64.8L11.5 64.2L10.3 60.4L10.2 59.7L10 59.1ZM31 31L48 31L48 48L31 48ZM31 73L48 73L48 90L40.9 90L40.3 89.8L39.6 89.7L35.8 88.5L35.2 88.2L33.5 87.5L32.9 87.3L31.1 86.4L31 85.8ZM52 10L59.1 10L59.7 10.2L60.4 10.3L64.2 11.5L64.8 11.8L66.5 12.5L67.1 12.7L68.9 13.6L69 14.2L69 27L52 27ZM52 52L69 52L69 69L52 69ZM73 31L85.8 31L86.4 31.1L87.3 32.9L87.5 33.5L88.2 35.2L88.5 35.8L89.7 39.6L89.8 40.3L90 40.9L90 48L73 48ZM73 73L83.6 73L84.1 72.8L84.4 72.2L84.2 72.7L81.9 75.7L81.7 76.1L76.1 81.7L75.7 81.9L72.7 84.2L72.2 84.4L72.8 84.1L73 83.6Z"/><circle class="ring" cx="50" cy="50" r="44" fill="none" stroke-width="6"/></svg>
+
+      <div><h3>KAGO <span>the compressor</span></h3><p>Packs files, and whole directory trees, into a new archive, or adds them to one that exists.</p>
+      <p class="usage"><code>KAGO [switches] archive files...</code></p></div>
+    </div>
+    <div class="prog unkago"><svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path class="wa" d="M24.4 18L27.5 15.8L28.9 14.9L29.2 14.6L31.6 13.4L30.2 14.1L28.6 15.1L27 16.7L27 83.3L28.6 84.9L30.2 85.9L31.6 86.6L29.2 85.4L28.9 85.1L27.5 84.2L23 80.9L21.6 79.6L20.1 78L18.5 76.2L16.9 74.2L15.2 71.7L13.6 68.9L12.2 65.8L10.9 62.2L10 58.3L10 41.7L10.9 37.8L12.2 34.2L13.6 31.1L15.2 28.3L16.9 25.8L18.5 23.8L20.1 22L21.6 20.4L23 19.1ZM45.5 9.2L46.1 9.2L46.6 9.1L47.8 9.1L48 9L48 91L47.8 90.9L46.6 90.9L46.1 90.8L45.5 90.8L38.9 89.5L38.4 89.3L37.9 89.2L36.9 88.8L36.4 88.7L34.3 87.9L31.5 86.6L31 83.3L31 16.7L31.5 13.4L34.3 12.1ZM52.2 9.1L53.4 9.1L53.9 9.2L54.5 9.2L65.7 12.1L68.5 13.4L69 16.7L69 83.3L68.5 86.6L65.7 87.9L63.6 88.7L63.1 88.8L62.1 89.2L61.6 89.3L61.1 89.5L54.5 90.8L53.9 90.8L53.4 90.9L52.2 90.9L52 91L52 9ZM70.8 14.6L71.1 14.9L72.5 15.8L77 19.1L78.4 20.4L79.9 22L81.5 23.8L83.1 25.8L84.8 28.3L86.4 31.1L87.8 34.2L89.1 37.8L90 41.7L90 58.3L89.1 62.2L87.8 65.8L86.4 68.9L84.8 71.7L83.1 74.2L81.5 76.2L79.9 78L78.4 79.6L77 80.9L72.5 84.2L71.1 85.1L70.8 85.4L68.4 86.6L69.8 85.9L71.4 84.9L73 83.3L73 16.7L71.4 15.1L69.8 14.1L68.4 13.4Z"/><path class="wb" d="M18 24.4L19.1 23L20.4 21.6L22 20.1L23.8 18.5L25.8 16.9L28.3 15.2L31.1 13.6L34.2 12.2L37.8 10.9L41.7 10L58.3 10L62.2 10.9L65.8 12.2L68.9 13.6L71.7 15.2L74.2 16.9L76.2 18.5L78 20.1L79.6 21.6L80.9 23L84.2 27.5L85.1 28.9L85.4 29.2L86.6 31.6L85.9 30.2L84.9 28.6L83.3 27L16.7 27L15.1 28.6L14.1 30.2L13.4 31.6L14.6 29.2L14.9 28.9L15.8 27.5ZM12.1 34.3L13.4 31.5L16.7 31L83.3 31L86.6 31.5L87.9 34.3L88.7 36.4L88.8 36.9L89.2 37.9L89.3 38.4L89.5 38.9L90.8 45.5L90.8 46.1L90.9 46.6L90.9 47.8L91 48L9 48L9.1 47.8L9.1 46.6L9.2 46.1L9.2 45.5ZM9 52L91 52L90.9 52.2L90.9 53.4L90.8 53.9L90.8 54.5L89.5 61.1L89.3 61.6L89.2 62.1L88.8 63.1L88.7 63.6L87.9 65.7L86.6 68.5L83.3 69L16.7 69L13.4 68.5L12.1 65.7L9.2 54.5L9.2 53.9L9.1 53.4L9.1 52.2ZM13.4 68.4L14.1 69.8L15.1 71.4L16.7 73L83.3 73L84.9 71.4L85.9 69.8L86.6 68.4L85.4 70.8L85.1 71.1L84.2 72.5L80.9 77L79.6 78.4L78 79.9L76.2 81.5L74.2 83.1L71.7 84.8L68.9 86.4L65.8 87.8L62.2 89.1L58.3 90L41.7 90L37.8 89.1L34.2 87.8L31.1 86.4L28.3 84.8L25.8 83.1L23.8 81.5L22 79.9L20.4 78.4L19.1 77L15.8 72.5L14.9 71.1L14.6 70.8Z"/><path class="wa" d="M21 21L21.3 20.8L23.9 18.3L24.3 18.1L27.3 15.8L27.8 15.6L29.1 14.7L27.2 15.9L27 16.4L27 27L16.4 27L15.9 27.2L14.7 29.1L15.6 27.8L15.8 27.3L18.1 24.3L18.3 23.9L20.8 21.3ZM10 52L27 52L27 69L14.2 69L13.6 68.9L12.7 67.1L12.5 66.5L11.8 64.8L11.5 64.2L10.3 60.4L10.2 59.7L10 59.1ZM31 31L48 31L48 48L31 48ZM31 73L48 73L48 90L40.9 90L40.3 89.8L39.6 89.7L35.8 88.5L35.2 88.2L33.5 87.5L32.9 87.3L31.1 86.4L31 85.8ZM52 10L59.1 10L59.7 10.2L60.4 10.3L64.2 11.5L64.8 11.8L66.5 12.5L67.1 12.7L68.9 13.6L69 14.2L69 27L52 27ZM52 52L69 52L69 69L52 69ZM73 31L85.8 31L86.4 31.1L87.3 32.9L87.5 33.5L88.2 35.2L88.5 35.8L89.7 39.6L89.8 40.3L90 40.9L90 48L73 48ZM73 73L83.6 73L84.1 72.8L84.4 72.2L84.2 72.7L81.9 75.7L81.7 76.1L76.1 81.7L75.7 81.9L72.7 84.2L72.2 84.4L72.8 84.1L73 83.6Z"/><circle class="ring" cx="50" cy="50" r="44" fill="none" stroke-width="6"/></svg>
+
+      <div><h3>UNKAGO <span>the decompressor</span></h3><p>Lists an archive, and extracts all of it or only the members you name, here or anywhere else.</p>
+      <p class="usage"><code>UNKAGO [switches] archive [members...]</code></p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>What they can do</h2>
+  <div class="feats">
+    <div class="feat"><h3>Whole directory trees</h3><p>Name a directory and everything under it goes in, in ZIP and LZH archives. <code>UNKAGO</code> creates the directories as it extracts.</p></div>
+    <div class="feat"><h3>Archives from modern computers</h3><p><code>-lh6-</code> and <code>-lh7-</code> archives from <code>lha</code>, and ZIP files from <code>zip</code>, Windows, macOS or Linux, which the older MSX tools cannot open.</p></div>
+    <div class="feat"><h3>Long filenames</h3><p>Names that do not fit MSX-DOS&rsquo;s 8.3 form are shortened the way Windows shortens them: <code>longfilename.txt</code> becomes <code>LONGFI~1.TXT</code>. The same archive always gives the same names.</p></div>
+    <div class="feat"><h3>Adding to an archive</h3><p><code>/A</code> adds files to an archive that exists, in all three formats. Files with the same path are replaced; the rest are kept byte for byte.</p></div>
+    <div class="feat"><h3>Safe extraction</h3><p><code>UNKAGO</code> checks that everything fits on the disk and in memory before it writes anything, checks every file&rsquo;s CRC, and never replaces a file unless you ask with <code>/O</code>.</p></div>
+    <div class="feat"><h3>Some members only</h3><p>Choose what to list or extract with <code>*</code> and <code>?</code>, or by naming a directory; extract it into another directory with <code>/D:</code>, created if missing.</p></div>
+    <div class="feat"><h3>Dates and attributes kept</h3><p>Each file&rsquo;s date and time, and its read-only, hidden and system attributes, go into the archive and come back out.</p></div>
+    <div class="feat"><h3>Any amount of memory</h3><p>Both tools use the mapper memory that is free when they run. With less than it needs, <code>KAGO</code> packs with a smaller window, or stores, after asking.</p></div>
+    <div class="feat"><h3>Fast on the turbo R</h3><p>Both run on any MSX2 or later with MSX-DOS2, and are simply faster in the turbo R&rsquo;s R800 mode.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap cols">
+  <div>
+    <h2>What you need</h2>
+    <ul class="reqs">
+      <li>An MSX2 or later running MSX-DOS2 or Nextor, or an emulator that runs them.</li>
+      <li>A memory mapper, which every MSX that runs MSX-DOS2 has. 128 KB is enough.</li>
+    </ul>
+    <p class="more">The <a href="/en/manual/">manual</a> describes both tools completely, and the <a href="/en/examples/">examples</a> show them at work.</p>
+  </div>
+  <div>
+    <h2>Where the name comes from</h2>
+    <p class="names">A <em>kago</em> (籠) is a basket: something woven of bamboo or rattan that you pack things into, and take them out of again. The weave of its strips, over and under, is the mark of this site.</p>
+  </div>
+</div></section>
+
+</main>
+<footer><div class="wrap">
+  <span>KAGO / UNKAGO © 2026 <a href="https://www.lavandeira.net">Javier Lavandeira</a></span>
+  <span class="sep">·</span><span>Apache License 2.0</span>
+  <span class="sep">·</span><span><a href="https://github.com/javilm/kago">Source on GitHub</a></span>
+  <span class="sep">·</span><span>Built on the MSX with <a href="https://tatara.tools">Tatara</a></span>
+</div>
+<div class="wrap legal">
+  <span>MSX is a trademark of MSX Licensing Corporation.</span>
+  <span><a href="https://konamiman.com/msx/msx-e.html">Nextor is copyright © Néstor Soriano.</a></span>
+</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+{{- /* The page's title, description and address: the browser's tab,
+       search engines, and the previews social media show of a shared
+       link (Open Graph), with a picture of the home page's hero in the
+       page's language (static/img/preview-en.jpg, preview-ja.jpg). A
+       page without a description gets the home page's. */}}
+{{- $title := site.Title }}
+{{- if eq .Kind "404" }}{{ $title = printf "%s · %s" (i18n "notFound") site.Title }}
+{{- else if not .IsHome }}{{ $title = printf "%s · %s" .Title site.Title }}{{ end }}
+{{- $desc := .Description | default site.Home.Description }}
+{{- $locale := dict "en" "en_US" "ja" "ja_JP" }}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+{{- if ne .Kind "404" }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{- end }}
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ printf "img/preview-%s.jpg" .Lang | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ i18n "previewAlt" }}">
+<meta property="og:locale" content="{{ index $locale .Lang }}">
+{{- range .Translations }}
+<meta property="og:locale:alternate" content="{{ index $locale .Lang }}">
+{{- end }}
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+{{- /* The reader's choice of light or dark, read before the page is drawn so that it does not first
+       appear in the other colours. With no choice saved, the system
+       setting decides (site.css). Choosing the same as the system
+       setting forgets the choice. The "js" class shows the button. */}}
+<script>
+var root = document.documentElement;
+root.classList.add("js");
+try {
+  var saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved;
+} catch (e) {}
+function toggleTheme() {
+  var system = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  var next = (root.dataset.theme || system) == "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  try {
+    if (next == system) localStorage.removeItem("theme");
+    else localStorage.setItem("theme", next);
+  } catch (e) {}
+}
+</script>
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{- end }}
+{{- if .IsHome }}
+{{ partial "software-data.html" . }}
+{{- end }}
+{{ partial "plausible.html" . }}

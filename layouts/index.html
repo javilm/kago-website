@@ -1,0 +1,78 @@
+{{ define "main" }}
+{{- $lang := .Language.Lang }}
+{{- $v := dict "Version" site.Params.version }}
+
+<section class="hero"><div class="wrap heroin">
+  <div class="herotext">
+    <img class="msxlogo" src="/img/msx-logo.png" width="200" height="83" alt="MSX">
+    <p class="eyebrow">{{ i18n "eyebrow" $v }}</p>
+    <h1>{{ range .Params.hero.heading }}{{ . }}<wbr>{{ end }}</h1>
+    <p class="lead">{{ .Params.hero.lead | markdownify }}</p>
+    <p class="actions">
+      <a class="btn primary" href="/{{ $lang }}/download/">{{ i18n "downloadButton" $v }}</a>
+      <a class="btn" href="/{{ $lang }}/manual/">{{ i18n "manualButton" }}</a>
+    </p>
+    <p class="small">{{ .Params.hero.note | markdownify }}</p>
+  </div>
+  {{ partial "terminal-carousel.html" . }}
+</div></section>
+
+{{- with .Params.formats }}
+<section class="band formats"><div class="wrap">
+  <h2>{{ range .heading }}{{ . }}<wbr>{{ end }}</h2>
+  <p class="intro">{{ .intro | markdownify }}</p>
+  <div class="fmts">
+    {{- range .items }}
+    <div class="fmtcard">
+      <h3>{{ .name }} <span>{{ .ext }}</span></h3>
+      <p>{{ .text | markdownify }}</p>
+      <dl>
+        <dt>KAGO</dt><dd>{{ .kago | markdownify }}</dd>
+        <dt>UNKAGO</dt><dd>{{ .unkago | markdownify }}</dd>
+      </dl>
+    </div>
+    {{- end }}
+  </div>
+</div></section>
+{{- end }}
+
+<section><div class="wrap">
+  <h2>{{ range .Params.programs.heading }}{{ . }}<wbr>{{ end }}</h2>
+  <div class="two">
+    {{- range $name := slice "kago" "unkago" }}
+    {{- with index $.Params.programs $name }}
+    <div class="prog {{ $name }}">
+      {{- with resources.Get "img/mark-kago.svg" }}{{ .Content | safeHTML }}{{ end }}
+      <div><h3>{{ upper $name }} <span>{{ .role }}</span></h3><p>{{ .text | markdownify }}</p>
+      <p class="usage"><code>{{ .usage }}</code></p></div>
+    </div>
+    {{- end }}
+    {{- end }}
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>{{ .Params.features.heading }}</h2>
+  <div class="feats">
+    {{- range .Params.features.items }}
+    <div class="feat"><h3>{{ .title }}</h3><p>{{ .text | markdownify }}</p></div>
+    {{- end }}
+  </div>
+</div></section>
+
+<section><div class="wrap cols">
+  <div>
+    <h2>{{ .Params.requirements.heading }}</h2>
+    <ul class="reqs">
+      {{- range .Params.requirements.items }}
+      <li>{{ . | markdownify }}</li>
+      {{- end }}
+    </ul>
+    <p class="more">{{ .Params.requirements.more | markdownify }}</p>
+  </div>
+  <div>
+    <h2>{{ .Params.names.heading }}</h2>
+    <p class="names">{{ .Params.names.text | markdownify }}</p>
+  </div>
+</div></section>
+{{ end }}

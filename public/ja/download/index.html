@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ダウンロード · Kago</title>
+<meta name="description" content="ZIP、LZH、PMAを扱うMSX-DOS2用のアーカイバー、KAGOとUNKAGOをダウンロードできます。">
+<link rel="canonical" href="https://kago.tools/ja/download/">
+<meta property="og:site_name" content="Kago">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ダウンロード · Kago">
+<meta property="og:description" content="ZIP、LZH、PMAを扱うMSX-DOS2用のアーカイバー、KAGOとUNKAGOをダウンロードできます。">
+<meta property="og:url" content="https://kago.tools/ja/download/">
+<meta property="og:image" content="https://kago.tools/img/preview-ja.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kagoのホームページ：MSXのロゴ、MSXのアーカイブをどの形式でも1組のツールで、ディレクトリのツリーをZIPアーカイブにまとめるMSX-DOS2の画面。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script>
+var root = document.documentElement;
+root.classList.add("js");
+try {
+  var saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved;
+} catch (e) {}
+function toggleTheme() {
+  var system = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  var next = (root.dataset.theme || system) == "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  try {
+    if (next == system) localStorage.removeItem("theme");
+    else localStorage.setItem("theme", next);
+  } catch (e) {}
+}
+</script>
+<link rel="alternate" hreflang="en" href="https://kago.tools/en/download/">
+<link rel="alternate" hreflang="ja" href="https://kago.tools/ja/download/">
+<script defer data-domain="kago.tools" src="https://analytics.lavnet.org/js/script.file-downloads.hash.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="top"><div class="wrap topin">
+  <a class="brand" href="/ja/"><svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path class="wa" d="M24.4 18L27.5 15.8L28.9 14.9L29.2 14.6L31.6 13.4L30.2 14.1L28.6 15.1L27 16.7L27 83.3L28.6 84.9L30.2 85.9L31.6 86.6L29.2 85.4L28.9 85.1L27.5 84.2L23 80.9L21.6 79.6L20.1 78L18.5 76.2L16.9 74.2L15.2 71.7L13.6 68.9L12.2 65.8L10.9 62.2L10 58.3L10 41.7L10.9 37.8L12.2 34.2L13.6 31.1L15.2 28.3L16.9 25.8L18.5 23.8L20.1 22L21.6 20.4L23 19.1ZM45.5 9.2L46.1 9.2L46.6 9.1L47.8 9.1L48 9L48 91L47.8 90.9L46.6 90.9L46.1 90.8L45.5 90.8L38.9 89.5L38.4 89.3L37.9 89.2L36.9 88.8L36.4 88.7L34.3 87.9L31.5 86.6L31 83.3L31 16.7L31.5 13.4L34.3 12.1ZM52.2 9.1L53.4 9.1L53.9 9.2L54.5 9.2L65.7 12.1L68.5 13.4L69 16.7L69 83.3L68.5 86.6L65.7 87.9L63.6 88.7L63.1 88.8L62.1 89.2L61.6 89.3L61.1 89.5L54.5 90.8L53.9 90.8L53.4 90.9L52.2 90.9L52 91L52 9ZM70.8 14.6L71.1 14.9L72.5 15.8L77 19.1L78.4 20.4L79.9 22L81.5 23.8L83.1 25.8L84.8 28.3L86.4 31.1L87.8 34.2L89.1 37.8L90 41.7L90 58.3L89.1 62.2L87.8 65.8L86.4 68.9L84.8 71.7L83.1 74.2L81.5 76.2L79.9 78L78.4 79.6L77 80.9L72.5 84.2L71.1 85.1L70.8 85.4L68.4 86.6L69.8 85.9L71.4 84.9L73 83.3L73 16.7L71.4 15.1L69.8 14.1L68.4 13.4Z"/><path class="wb" d="M18 24.4L19.1 23L20.4 21.6L22 20.1L23.8 18.5L25.8 16.9L28.3 15.2L31.1 13.6L34.2 12.2L37.8 10.9L41.7 10L58.3 10L62.2 10.9L65.8 12.2L68.9 13.6L71.7 15.2L74.2 16.9L76.2 18.5L78 20.1L79.6 21.6L80.9 23L84.2 27.5L85.1 28.9L85.4 29.2L86.6 31.6L85.9 30.2L84.9 28.6L83.3 27L16.7 27L15.1 28.6L14.1 30.2L13.4 31.6L14.6 29.2L14.9 28.9L15.8 27.5ZM12.1 34.3L13.4 31.5L16.7 31L83.3 31L86.6 31.5L87.9 34.3L88.7 36.4L88.8 36.9L89.2 37.9L89.3 38.4L89.5 38.9L90.8 45.5L90.8 46.1L90.9 46.6L90.9 47.8L91 48L9 48L9.1 47.8L9.1 46.6L9.2 46.1L9.2 45.5ZM9 52L91 52L90.9 52.2L90.9 53.4L90.8 53.9L90.8 54.5L89.5 61.1L89.3 61.6L89.2 62.1L88.8 63.1L88.7 63.6L87.9 65.7L86.6 68.5L83.3 69L16.7 69L13.4 68.5L12.1 65.7L9.2 54.5L9.2 53.9L9.1 53.4L9.1 52.2ZM13.4 68.4L14.1 69.8L15.1 71.4L16.7 73L83.3 73L84.9 71.4L85.9 69.8L86.6 68.4L85.4 70.8L85.1 71.1L84.2 72.5L80.9 77L79.6 78.4L78 79.9L76.2 81.5L74.2 83.1L71.7 84.8L68.9 86.4L65.8 87.8L62.2 89.1L58.3 90L41.7 90L37.8 89.1L34.2 87.8L31.1 86.4L28.3 84.8L25.8 83.1L23.8 81.5L22 79.9L20.4 78.4L19.1 77L15.8 72.5L14.9 71.1L14.6 70.8Z"/><path class="wa" d="M21 21L21.3 20.8L23.9 18.3L24.3 18.1L27.3 15.8L27.8 15.6L29.1 14.7L27.2 15.9L27 16.4L27 27L16.4 27L15.9 27.2L14.7 29.1L15.6 27.8L15.8 27.3L18.1 24.3L18.3 23.9L20.8 21.3ZM10 52L27 52L27 69L14.2 69L13.6 68.9L12.7 67.1L12.5 66.5L11.8 64.8L11.5 64.2L10.3 60.4L10.2 59.7L10 59.1ZM31 31L48 31L48 48L31 48ZM31 73L48 73L48 90L40.9 90L40.3 89.8L39.6 89.7L35.8 88.5L35.2 88.2L33.5 87.5L32.9 87.3L31.1 86.4L31 85.8ZM52 10L59.1 10L59.7 10.2L60.4 10.3L64.2 11.5L64.8 11.8L66.5 12.5L67.1 12.7L68.9 13.6L69 14.2L69 27L52 27ZM52 52L69 52L69 69L52 69ZM73 31L85.8 31L86.4 31.1L87.3 32.9L87.5 33.5L88.2 35.2L88.5 35.8L89.7 39.6L89.8 40.3L90 40.9L90 48L73 48ZM73 73L83.6 73L84.1 72.8L84.4 72.2L84.2 72.7L81.9 75.7L81.7 76.1L76.1 81.7L75.7 81.9L72.7 84.2L72.2 84.4L72.8 84.1L73 83.6Z"/><circle class="ring" cx="50" cy="50" r="44" fill="none" stroke-width="6"/></svg>
+<span>Kago</span></a>
+  <nav class="mainnav">
+    <a href="/ja/download/" class="cur" aria-current="page">ダウンロード</a>
+    <a href="/ja/examples/">使用例</a>
+    <a href="/ja/manual/">マニュアル</a>
+    <a href="https://github.com/javilm/kago">GitHub</a>
+  </nav>
+  <div class="tools">
+  <a class="langsw" href="/en/download/" lang="en" hreflang="en">English</a>
+  <button class="themesw" type="button" onclick="toggleTheme()" title="ライト・ダークの切り替え" aria-label="ライト・ダークの切り替え">
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+  </button>
+  </div>
+</div></header>
+
+<main id="main">
+
+<article class="article wrap">
+  <h1>ダウンロード</h1>
+  <p>このページにあるものはすべて無料です。</p>
+<h2 id="kago">KAGO・UNKAGO 1.0.1</h2>
+<p>2つのプログラムです。そのままMSXにコピーして使えます。</p>
+<ul>
+<li><a href="https://github.com/javilm/kago/releases/download/v1.0.1/kago.com" download><code>KAGO.COM</code></a> <span class="size">(18,857バイト)</span>：圧縮ツール</li>
+<li><a href="https://github.com/javilm/kago/releases/download/v1.0.1/unkago.com" download><code>UNKAGO.COM</code></a> <span class="size">(17,853バイト)</span>：解凍ツール</li>
+</ul>
+<p><a href="/ja/manual/">マニュアル</a>はこのサイトで読めます。MSX用のテキスト版<code>MANUAL.TXT</code>と<code>README.TXT</code>は、<a href="https://github.com/javilm/kago/releases/tag/v1.0.1">GitHubのリリースのページ</a>にあります。以前のバージョンと、それぞれの変更点もそこにあります。</p>
+<h2 id="インストール">インストール</h2>
+<p><code>KAGO.COM</code>と<code>UNKAGO.COM</code>を、<code>PATH</code>に含まれるディレクトリのどれかにコピーします。たとえばツールがドライブB:にあり、コマンドを<code>A:\UTILS</code>に置いているなら、次のようにします。</p>
+<pre class="session"><code><span class="pr">A&gt;</span><span class="cmd">COPY B:KAGO.COM A:\UTILS</span>
+<span class="pr">A&gt;</span><span class="cmd">COPY B:UNKAGO.COM A:\UTILS</span></code></pre>
+<p><code>PATH</code>とだけ入力すると、MSX-DOS2が探すディレクトリが表示されます。使いたいディレクトリがなければ、<code>PATH</code>コマンドで追加し（説明は<code>HELP PATH</code>で見られます）、その行を<code>AUTOEXEC.BAT</code>に書いておきます。最後に、ツールが動くことを確かめます。</p>
+<pre class="session"><code><span class="pr">A&gt;</span><span class="cmd">KAGO /V</span>
+<span class="pr">A&gt;</span><span class="cmd">UNKAGO /V</span></code></pre>
+<p>ほかに必要なものはありません。設定ファイルも環境変数もいりません。2つのツールのすべては<a href="/ja/manual/">マニュアル</a>で説明しています。</p>
+
+</article>
+
+</main>
+<footer><div class="wrap">
+  <span>KAGO / UNKAGO © 2026 <a href="https://www.lavandeira.net">Javier Lavandeira</a></span>
+  <span class="sep">·</span><span>Apache License 2.0</span>
+  <span class="sep">·</span><span><a href="https://github.com/javilm/kago">GitHubのソース</a></span>
+  <span class="sep">·</span><span><a href="https://tatara.tools">Tatara</a>でMSXの上でビルド</span>
+</div>
+<div class="wrap legal">
+  <span>MSXはMSX Licensing Corporationの商標です。</span>
+  <span><a href="https://konamiman.com/msx/msx-e.html">Nextorの著作権はNéstor Sorianoに帰属します。</a></span>
+</div></footer>
+
+</body>
+</html>

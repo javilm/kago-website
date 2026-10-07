@@ -1,0 +1,19 @@
+{{- /* session-steps.html - a session's steps as the screen shows them:
+       a list of {p: prompt, c: command, o: output}. Without /Q, each
+       command's output starts with its tool's banner and a blank line,
+       as KAGO and UNKAGO print it. Takes a session from
+       data/sessions.yaml. */ -}}
+{{- $banners := dict
+  "kago" "KAGO LZH/PMA/ZIP Compressor"
+  "unkago" "UNKAGO LZH/PMA/ZIP Decompressor" -}}
+{{- $steps := slice -}}
+{{- range .steps -}}
+  {{- $cmd := lower .cmd -}}
+  {{- $tool := index (split $cmd " ") 0 -}}
+  {{- $out := .out -}}
+  {{- if not (in $cmd "/q") -}}
+    {{- $out = printf "%s v%s\nCopyright (C) %s %s\nhttps://kago.tools\n\n%s" (index $banners $tool) site.Params.version site.Params.copyright site.Params.author $out -}}
+  {{- end -}}
+  {{- $steps = $steps | append (dict "p" $.prompt "c" .cmd "o" $out) -}}
+{{- end -}}
+{{- return $steps -}}

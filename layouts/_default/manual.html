@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="wrap manual">
+  <nav class="toc" aria-label="{{ i18n "contents" }}">
+    <p>{{ i18n "contents" }}</p>
+    {{ .TableOfContents }}
+  </nav>
+  <article class="article">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </article>
+</div>
+{{ end }}

@@ -1,0 +1,288 @@
+# sessions.yaml - the MSX-DOS2 sessions on the home page (hero: true)
+# and the Examples page. The output is what the tools print, less the
+# banner: the templates add it to every command without /Q.
+# Written by a script; the listings' columns are generated.
+
+- id: zip-tree
+  format: ZIP
+  hero: true
+  prompt: A:\>
+  title:
+    en: Packing a directory tree into a ZIP archive
+    ja: ディレクトリのツリーをZIPアーカイブにまとめる
+  caption:
+    en: KAGO packs a whole directory tree into a ZIP archive. The extension chooses the format.
+    ja: KAGOがディレクトリのツリー全体をZIPアーカイブにまとめます。形式は拡張子で決まります。
+  text:
+    en: 'Name a directory and everything under it goes in, at every depth: an entry for each directory, then its files. `.ZIP` chooses the format; `.LZH` or `.PMA` would choose the others.'
+    ja: ディレクトリを指定すると、その下にあるものがすべて、どの深さまでも入ります。ディレクトリごとにまずその項目が、次にその中のファイルが追加されます。形式は拡張子`.ZIP`で決まり、`.LZH`や`.PMA`ならそれぞれの形式になります。
+  steps:
+  - cmd: kago game.zip game
+    out: |-
+      Adding GAME\ OK
+      Adding GAME\GAME.COM OK
+      Adding GAME\GAME.DAT OK
+      Adding GAME\README.TXT OK
+      Adding GAME\MUSIC\ OK
+      Adding GAME\MUSIC\TITLE.MWM OK
+      Adding GAME\MUSIC\STAGE1.MWM OK
+      Adding GAME\MUSIC\STAGE2.MWM OK
+      Adding GAME\SAVE\ OK
+- id: lzh-modern
+  format: LZH
+  hero: true
+  prompt: A:\DOWNLOAD>
+  title:
+    en: Listing an LZH archive made on a modern computer
+    ja: 現代のコンピューターで作ったLZHアーカイブを一覧する
+  caption:
+    en: 'UNKAGO lists an archive made by lha today: -lh7- members, which older MSX tools cannot open.'
+    ja: UNKAGOが、現在のlhaで作ったアーカイブを一覧します。-lh7-のメンバーは、これまでのMSXのツールでは開けませんでした。
+  text:
+    en: '`lha` on a modern computer packs with `-lh7-` and `-lh6-` (64 KB and 32 KB windows), which the older MSX extractors cannot open. `UNKAGO` reads them, keeping the window in mapper memory. `/L` lists without extracting: the packed and original sizes, the method, the date and the path.'
+    ja: 現代のコンピューターの`lha`は、`-lh7-`や`-lh6-`（64 KBと32 KBの窓）で圧縮します。これまでのMSXの解凍ツールでは開けませんが、`UNKAGO`は窓をマッパー・メモリに置いて読みます。`/L`は解凍せずに一覧します。圧縮後と元のサイズ、方式、日付、パスが表示されます。
+  steps:
+  - cmd: unkago /l sdk.lzh
+    out: |2-
+          Packed   Original Method Date             Name
+      ---------- ---------- ------ ---------------- ------------
+               0          0 -lhd-  2026-09-14 21:03 sdk\
+            5112      14837 -lh7-  2026-09-14 21:02 sdk\README.md
+           19634      61402 -lh7-  2026-09-14 20:57 sdk\msxbios.inc
+            8327      23119 -lh7-  2026-09-14 20:57 sdk\msxdos2.inc
+               0          0 -lhd-  2026-09-14 21:03 sdk\examples\
+             911       2240 -lh6-  2026-09-12 18:44 sdk\examples\hello.as
+            4406       9984 -lh7-  2026-09-12 18:45 sdk\examples\sprites.as
+      ---------- ---------- ------                  ------------
+           38390     111582        7 files
+- id: pma-pack
+  format: PMA
+  hero: true
+  prompt: A:\EDITOR>
+  title:
+    en: Writing a PMA archive
+    ja: PMAアーカイブを書く
+  caption:
+    en: KAGO writes a PMA archive, packed with -pm2- as PMARC2 does, that PMEXT extracts.
+    ja: KAGOが、PMARC2と同じ-pm2-で圧縮したPMAアーカイブを書きます。PMEXTでも解凍できます。
+  text:
+    en: PMA is the format of PMarc and PMARC2. `KAGO` packs it with `-pm2-`, and PMEXT extracts the archive it writes. Unlike PMARC2, `KAGO` records each file's real date and its exact size.
+    ja: PMAはPMarcとPMARC2の形式です。`KAGO`は`-pm2-`で圧縮し、書いたアーカイブはPMEXTでも解凍できます。PMARC2と違い、`KAGO`はファイルの本当の日付と正確なサイズを記録します。
+  steps:
+  - cmd: kago tools.pma *.com *.doc
+    out: |-
+      Adding EDIT.COM OK
+      Adding FIND.COM OK
+      Adding EDIT.DOC OK
+      Adding FIND.DOC OK
+  - cmd: unkago /l tools.pma
+    out: |2-
+          Packed   Original Method Date             Name
+      ---------- ---------- ------ ---------------- ------------
+            9418      15744 -pm2-  2026-08-30 22:15 EDIT.COM
+            2190       3328 -pm2-  2026-08-30 22:16 FIND.COM
+            6025      17903 -pm2-  2026-08-29 19:40 EDIT.DOC
+            1342       3071 -pm2-  2026-08-29 19:52 FIND.DOC
+      ---------- ---------- ------                  ------------
+           18975      40046        4 files
+- id: zip-dest
+  format: ZIP
+  hero: true
+  prompt: A:\>
+  title:
+    en: Extracting a ZIP archive into another directory
+    ja: ZIPアーカイブを別のディレクトリに解凍する
+  caption:
+    en: UNKAGO extracts a ZIP made on a modern computer into B:\BACKUP, creating the directories and shortening long names.
+    ja: UNKAGOが、現代のコンピューターで作ったZIPをB:¥BACKUPに解凍します。ディレクトリを作り、長い名前は短くします。
+  text:
+    en: '`/D:` extracts somewhere else, and creates the destination if it is missing. Long names that do not fit MSX-DOS''s 8.3 form are shortened the way Windows shortens them for MS-DOS, and the line says so. Before writing anything, `UNKAGO` checks that everything fits on the disk and in memory.'
+    ja: '`/D:`で別の場所に解凍できます。解凍先がなければ作ります。MSX-DOSの8.3形式に収まらない長い名前は、WindowsがMS-DOS向けに短くするのと同じ方法で短くし、そのことを表示します。`UNKAGO`は書き込みを始める前に、ディスクとメモリに収まるかどうかを確かめます。'
+  steps:
+  - cmd: unkago /d:b:\backup rescue.zip
+    out: |-
+      Extracting Space Rescue\ as SPACER~1\ OK
+      Extracting Space Rescue\rescue.com as SPACER~1\RESCUE.COM OK
+      Extracting Space Rescue\read me.txt as SPACER~1\README~1.TXT OK
+      Extracting Space Rescue\gfx\ as SPACER~1\GFX\ OK
+      Extracting Space Rescue\gfx\title.sc5 as SPACER~1\GFX\TITLE.SC5 OK
+      Extracting Space Rescue\gfx\sprites.dat as SPACER~1\GFX\SPRITES.DAT OK
+- id: pma-sfx
+  format: PMA
+  hero: true
+  prompt: A:\>
+  title:
+    en: Opening a self-extracting PMA file
+    ja: 自己解凍形式のPMAファイルを開く
+  caption:
+    en: 'UNKAGO lists and extracts a self-extracting PMA file without running it: here, PMEXT''s own distribution.'
+    ja: UNKAGOが自己解凍形式のPMAファイルを、実行せずに一覧して解凍します。これはPMEXT自身の配布ファイルです。
+  text:
+    en: Many MSX programs were distributed as self-extracting PMA files, `.COM` programs that unpack themselves. `UNKAGO` reads the archive inside without running it, and leaves out the extractor it carries. This is `PMEXT222.COM`, the distribution of PMEXT 2.22.
+    ja: MSXのプログラムの多くは、自分自身を解凍する`.COM`のプログラム、つまり自己解凍形式のPMAファイルで配布されました。`UNKAGO`は実行せずに中のアーカイブを読み、付いている解凍プログラムは除きます。これはPMEXT 2.22の配布ファイル、`PMEXT222.COM`です。
+  steps:
+  - cmd: unkago /l pmext222.com
+    out: |2-
+          Packed   Original Method Date             Name
+      ---------- ---------- ------ ---------------- ------------
+             477        913 -pm2-  1991-07-23 18:25 !.
+            4989      12186 -pm2-  1991-07-23 18:07 PMEXT2.DOC
+            8140      12928 -pm2-  1991-07-23 17:30 PMEXT.COM
+      ---------- ---------- ------                  ------------
+           13606      26027        3 files
+  - cmd: unkago /q pmext222.com
+    out: |-
+      Extracting !. OK
+      Extracting PMEXT2.DOC OK
+      Extracting PMEXT.COM OK
+- id: lzh-add
+  format: LZH
+  hero: true
+  prompt: A:\WORK>
+  title:
+    en: Adding files to an LZH archive
+    ja: LZHアーカイブにファイルを追加する
+  caption:
+    en: '/A adds to an archive in any format: files with the same path are replaced, the other members kept byte for byte.'
+    ja: /Aはどの形式のアーカイブにも追加できます。同じパスのファイルは置き換え、ほかのメンバーは1バイトも変えずに残します。
+  text:
+    en: With `/A`, `KAGO` adds to an archive that exists, in any of the three formats. A file whose path is already in the archive replaces the old member; the others are copied byte for byte. The new archive is written beside the old one first, so if anything goes wrong the old one is left as it was.
+    ja: '`/A`を付けると、`KAGO`は既存のアーカイブに追加します。3つの形式のどれでもかまいません。同じパスのファイルがすでにあれば古いメンバーを置き換え、ほかのメンバーは1バイトも変えずにコピーします。新しいアーカイブはまず古いものの隣に書くので、途中で問題が起きても古いアーカイブはそのまま残ります。'
+  steps:
+  - cmd: kago /a docs.lzh *.txt
+    out: |-
+      Replacing NOTES.TXT OK
+      Adding TODO.TXT OK
+      Replacing README.TXT OK
+  - cmd: unkago /l /q docs.lzh
+    out: |2-
+          Packed   Original Method Date             Name
+      ---------- ---------- ------ ---------------- ------------
+            2210       5390 -lh5-  2026-09-02 23:11 MANUAL.DOC
+            1873       4512 -lh5-  2026-10-06 21:48 NOTES.TXT
+             402        815 -lh5-  2026-10-05 08:30 TODO.TXT
+             690       1428 -lh5-  2026-10-06 22:02 README.TXT
+      ---------- ---------- ------                  ------------
+            5175      12145        4 files
+- id: members
+  format: ZIP
+  prompt: A:\>
+  title:
+    en: Extracting some members only
+    ja: 一部のメンバーだけを解凍する
+  text:
+    en: Names after the archive choose what to list or extract. `*` and `?` work as wildcards across the whole path, and a directory's name chooses everything under it. A name that matches nothing is reported at the end.
+    ja: アーカイブ名のあとに名前を書くと、一覧や解凍の対象を選べます。`*`と`?`はパス全体に対するワイルドカードとして働き、ディレクトリ名を書くとその下のすべてが選ばれます。何にも一致しない名前は最後に報告されます。
+  steps:
+  - cmd: unkago game.zip *.mwm game\save readme.doc
+    out: |-
+      Extracting GAME\MUSIC\TITLE.MWM OK
+      Extracting GAME\MUSIC\STAGE1.MWM OK
+      Extracting GAME\MUSIC\STAGE2.MWM OK
+      Extracting GAME\SAVE\ OK
+      Not in the archive: README.DOC
+- id: existing
+  format: ZIP
+  prompt: A:\GAMES>
+  title:
+    en: Files that already exist
+    ja: すでにあるファイル
+  text:
+    en: '`UNKAGO` never replaces a file unless asked: it skips it, and says so. `/O` overwrites.'
+    ja: '`UNKAGO`は、指示がなければファイルを置き換えません。そのファイルを飛ばし、そのことを表示します。`/O`を付けると上書きします。'
+  steps:
+  - cmd: unkago /q game.zip
+    out: |-
+      Extracting GAME\ OK
+      Skipping GAME\GAME.COM: it already exists
+      Skipping GAME\GAME.DAT: it already exists
+      Extracting GAME\README.TXT OK
+      Extracting GAME\MUSIC\ OK
+      Extracting GAME\MUSIC\TITLE.MWM OK
+      Extracting GAME\MUSIC\STAGE1.MWM OK
+      Extracting GAME\MUSIC\STAGE2.MWM OK
+      Extracting GAME\SAVE\ OK
+  - cmd: unkago /o /q game.zip game\*.com
+    out: |-
+      Extracting GAME\GAME.COM OK
+- id: memory
+  format: ZIP
+  prompt: A:\>
+  title:
+    en: Packing with less memory
+    ja: 少ないメモリで圧縮する
+  text:
+    en: '`KAGO` uses the mapper memory that is free when it runs. With less than it needs for full strength (80 KB for ZIP), it says so and asks before writing anything; packing with less makes the archive a little larger, and just as valid. `/Y` answers yes without asking, for batch files.'
+    ja: '`KAGO`は、実行したときに空いているマッパー・メモリを使います。最大の圧縮に必要な量（ZIPなら80 KB）に足りなければ、そのことを表示し、何かを書く前に確認します。少ないメモリで圧縮するとアーカイブは少し大きくなりますが、正しいアーカイブであることに変わりはありません。バッチ・ファイルでは、`/Y`で確認なしに進められます。'
+  steps:
+  - cmd: kago backup.zip work
+    out: |-
+      Full packing needs 80 KB of mapper memory, but only 64 KB are free.
+      Pack with less? (Y/N) Y
+      Adding WORK\ OK
+      Adding WORK\MAIN.AS OK
+      Adding WORK\MAIN.INC OK
+      Adding WORK\BUILD.BAT OK
+- id: space
+  format: LZH
+  prompt: A:\>
+  title:
+    en: Not enough disk space
+    ja: ディスクの空きが足りないとき
+  text:
+    en: Before writing anything, `UNKAGO` adds up the space the members will take, in whole clusters, and compares it with the free space on the destination. If it does not fit, nothing is written. Choosing some members only, or another disk, solves it.
+    ja: '`UNKAGO`は書き込みを始める前に、メンバーが使う領域をクラスタ単位で合計し、解凍先の空き容量と比べます。収まらなければ何も書きません。一部のメンバーだけを選ぶか、別のディスクを選べば解凍できます。'
+  steps:
+  - cmd: 'unkago /q /d:b: sdk.lzh'
+    out: |-
+      Extracting this archive would take 128 KB on disk, but only 92 KB are free on B:.
+  - cmd: 'unkago /q /d:b: sdk.lzh *.as'
+    out: |-
+      Extracting sdk\examples\hello.as OK
+      Extracting sdk\examples\sprites.as OK
+- id: sel-pma
+  format: LZH
+  prompt: A:\>
+  title:
+    en: One format chosen by switch
+    ja: スイッチで形式を選ぶ
+  text:
+    en: 'An archive whose name does not end in `.ZIP`, `.LZH`, `.LHA` or `.PMA` gets its format from `/F:`. `UNKAGO` needs no switch: it recognises the format by itself, whatever the name.'
+    ja: 名前が`.ZIP`、`.LZH`、`.LHA`、`.PMA`で終わらないアーカイブは、`/F:`で形式を指定します。`UNKAGO`にはスイッチはいりません。名前にかかわらず、形式を自分で判別します。
+  steps:
+  - cmd: kago /f:lzh backup.dat *.as
+    out: |-
+      Adding MAIN.AS OK
+      Adding SOUND.AS OK
+  - cmd: unkago /l /q backup.dat
+    out: |2-
+          Packed   Original Method Date             Name
+      ---------- ---------- ------ ---------------- ------------
+            3988      11240 -lh5-  2026-10-07 09:12 MAIN.AS
+            1504       3891 -lh5-  2026-10-06 23:40 SOUND.AS
+      ---------- ---------- ------                  ------------
+            5492      15131        2 files
+- id: usage
+  format: ''
+  prompt: A:\>
+  title:
+    en: The usage, on the MSX
+    ja: MSXで使い方を見る
+  text:
+    en: '`/?`, or the tool''s name alone, prints the usage.'
+    ja: '`/?`を付けるか、ツールの名前だけを入力すると、使い方が表示されます。'
+  steps:
+  - cmd: unkago /?
+    out: |-
+      Usage: UNKAGO [switches] archive [members...]
+
+        /D:path  extract into path, made if missing:
+                 B:  B:\TEST  \TEMP  TEMP\FILES
+        /L       list the archive, extract nothing
+        /O       overwrite files that already exist
+        /Q       quiet: no banner, no progress
+        /V       the banner above, and nothing else
+        /?       this text
+
+      Members may use * and ?. Naming a directory
+      extracts everything under it.

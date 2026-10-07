@@ -1,0 +1,392 @@
+/* site.css - the stylesheet shared by every page of kago.tools.
+ *
+ * Colours are named once, as variables. Each holds a light and a dark
+ * value, light-dark(light, dark); the browser takes one or the other
+ * from color-scheme, which follows the reader's system setting unless
+ * the header's light/dark button has chosen (data-theme on <html>).
+ */
+
+/* ===== Light and dark ===== */
+
+:root { color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
+/* ===== The colours =====
+ *   --bg       page background         --band      alternate bands
+ *   --surface  cards and buttons       --line      borders and rules
+ *   --text     headings, strong text   --body      running text
+ *   --muted    secondary text          --code-bg   code within text
+ *   --accent   buttons, KAGO's mark    --accent-text  the accent, dark
+ *   --on-accent  text on --accent                     enough for text
+ *   --second   UNKAGO's colour
+ */
+
+/* Bamboo (竹): bamboo green and rattan, on unbleached cream */
+:root {
+  --bg:        light-dark(#fbf8f1, #12160f);
+  --band:      light-dark(#f3eddf, #171d13);
+  --surface:   light-dark(#ffffff, #1d2418);
+  --line:      light-dark(#e3dac6, #2e3826);
+  --text:      light-dark(#1f2a1c, #eef1e6);
+  --body:      light-dark(#2d3628, #d7dccd);
+  --muted:     light-dark(#5b6654, #a3ab97);
+  --code-bg:   light-dark(#efe7d3, #232c1d);
+  --accent:    light-dark(#4f7a24, #8cc152);
+  --accent-text: light-dark(#3d6619, #a5d46c);
+  --on-accent: light-dark(#ffffff, #10180a);
+  --second:    light-dark(#9a5a1e, #e3a565);
+}
+
+/* MSX-DOS screens: the MSX's own white on blue, in both themes */
+:root {
+  --term-bg: #2528f5;
+  --term-text: #ffffff;
+  --term-faded: #d9dcff;
+  --term-line: #1a1cb8;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* ===== Base ===== */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--body);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Yu Gothic", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+[lang="ja"] body { line-height: 1.85; }
+h1, h2, h3, h4 { color: var(--text); }
+a { color: var(--accent-text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code {
+  font-family: var(--mono);
+  font-size: .9em;
+  background: var(--code-bg);
+  padding: .1em .35em;
+  border-radius: 4px;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+.skip { position: absolute; left: -9999px; top: 8px; z-index: 10;
+  background: var(--accent); color: var(--on-accent); font-weight: 700;
+  padding: 6px 12px; border-radius: 6px; }
+.skip:focus { left: 8px; }
+
+/* ===== The mark: a plain weave, as in a basket ===== */
+
+.mark .ring { stroke: var(--accent); }
+.mark .wa { fill: var(--accent); }
+.mark .wb { fill: var(--second); }
+/* A thin line of the background between strips, so each crossing shows
+   which strip goes over */
+.mark .wa, .mark .wb { stroke: var(--bg); stroke-width: 2; stroke-linejoin: round; }
+.prog .mark .wa, .prog .mark .wb { stroke: var(--surface); }
+.prog.unkago .mark .ring { stroke: var(--second); }
+
+/* ===== Header ===== */
+
+.top { border-bottom: 1px solid var(--line); background: var(--bg); }
+.topin { display: flex; align-items: center; gap: 24px; min-height: 64px;
+  flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text);
+  font-weight: 700; font-size: 20px; letter-spacing: .3px; }
+.brand:hover { text-decoration: none; }
+.brand .mark { width: 32px; height: 32px; }
+.mainnav { display: flex; gap: 20px; flex-wrap: wrap; flex: 1; }
+.mainnav a { color: var(--muted); font-weight: 600; font-size: 15px; }
+.mainnav a:hover, .mainnav a.cur { color: var(--text); text-decoration: none; }
+.tools { display: flex; gap: 8px; }
+.langsw, .themesw { font-size: 14px; color: var(--muted);
+  border: 1px solid var(--line); padding: 4px 10px; border-radius: 6px; }
+.langsw:hover, .themesw:hover { color: var(--text); border-color: var(--muted);
+  text-decoration: none; }
+.themesw { display: none; background: none; cursor: pointer;
+  padding: 0 8px; }
+.js .themesw { display: flex; align-items: center; }
+
+/* ===== Footer ===== */
+
+footer { border-top: 1px solid var(--line); padding: 28px 0 40px;
+  font-size: 14px; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+footer .sep { opacity: .5; }
+footer .legal { margin-top: 10px; font-size: 13px; gap: 4px 16px; }
+
+/* ===== Buttons ===== */
+
+.btn { display: inline-block; padding: 11px 18px; border-radius: 8px;
+  font-weight: 700; font-size: 15px; border: 1px solid var(--line);
+  color: var(--text); background: var(--surface); }
+.btn:hover { text-decoration: none; border-color: var(--muted); }
+.btn.primary { background: var(--accent); border-color: var(--accent);
+  color: var(--on-accent); }
+.btn.primary:hover { filter: brightness(1.08); }
+
+@media (max-width: 560px) {
+  .topin { gap: 12px; padding-top: 10px; }
+  .mainnav { order: 3; flex-basis: 100%; gap: 16px; padding-bottom: 10px; }
+  .tools { margin-left: auto; }
+}
+
+/* ===================================================================
+ * The home page
+ * =================================================================== */
+
+/* The hero: dark in every theme, because its background picture is.
+ * Inside it, color-scheme is dark, so every light-dark() colour takes
+ * its dark value. */
+.hero { position: relative; overflow: hidden; isolation: isolate;
+  padding: 72px 0 64px; border-bottom: 1px solid var(--line);
+  color-scheme: dark; color: var(--text);
+  --surface: #ffffff14; --line: #ffffff26; --muted: #c3ccd9; }
+.hero::before { content: ""; position: absolute; inset: -30px; z-index: -2;
+  background: url("/img/hero_bg_1.webp") center / cover no-repeat;
+  filter: blur(6px) brightness(.6) saturate(.95); }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(8,10,14,.85) 0%,
+    rgba(8,10,14,.55) 55%, rgba(8,10,14,.2) 100%); }
+.heroin { display: grid; grid-template-columns: 1fr minmax(0, 1fr); gap: 48px;
+  align-items: center; }
+.msxlogo { display: block; width: 200px; height: auto; margin: 0 0 28px;
+  /* A glow, so that the logo's dark plate stands out from a dark picture */
+  filter: drop-shadow(0 0 1px rgba(255,255,255,.55))
+    drop-shadow(0 0 12px rgba(255,255,255,.35)); }
+.eyebrow { margin: 0 0 12px; color: var(--accent-text); font-weight: 600;
+  font-size: 14px; letter-spacing: .4px; }
+.hero h1 { font-size: clamp(32px, 4.4vw, 50px); line-height: 1.12;
+  margin: 0 0 20px; letter-spacing: -.5px; font-weight: 800; }
+[lang="ja"] .hero h1 { letter-spacing: 0; line-height: 1.3;
+  font-size: clamp(28px, 4vw, 44px); }
+.lead { font-size: 18px; color: var(--muted); margin: 0 0 28px;
+  max-width: 60ch; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 16px; }
+.small { font-size: 14px; color: var(--muted); margin: 0; }
+
+/* ===== MSX-DOS screens ===== */
+
+.term { margin: 0; position: relative; background: var(--term-bg);
+  border: 1px solid var(--term-line); border-radius: 10px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,.45); color-scheme: dark; }
+.termbar { display: flex; align-items: center; gap: 6px; padding: 9px 12px;
+  border-bottom: 1px solid var(--term-line); }
+.termbar span { width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,.35); }
+.termbar b { margin-left: 8px; font-size: 12px; font-weight: 600;
+  color: var(--term-faded); letter-spacing: .5px; }
+/* The archive format of the session, in the accent colour */
+.termbar .fmt { margin-left: auto; font-style: normal; font-size: 11px;
+  font-weight: 800; letter-spacing: 1px; padding: 2px 8px;
+  border-radius: 4px; background: var(--accent); color: var(--on-accent);
+  transition: opacity .4s; }
+/* An MSX screen wraps a line at its edge, as the MSX does */
+.term pre { margin: 0; padding: 16px; font-family: var(--mono);
+  font-size: 13px; line-height: 1.5; color: var(--term-text);
+  white-space: pre-wrap; word-break: break-all; }
+.term .pr { color: var(--term-faded); }
+.term .cmd { color: #ffffff; font-weight: 700; }
+.term figcaption { font-size: 13px; color: var(--term-faded);
+  padding: 10px 16px 12px; border-top: 1px solid var(--term-line); }
+
+/* The hero's screen: 24 lines tall, as an MSX screen is. A session
+ * longer than that scrolls up, as it would on the MSX. */
+.hero-term .screen { height: calc(24 * 1.5 * 12.5px); margin: 14px 16px;
+  overflow: hidden; }
+.hero-term pre { font-size: 12.5px; padding: 0; }
+.hero-term .cursor { display: inline-block; width: .6em; height: 1.15em;
+  vertical-align: -.2em; background: var(--term-text);
+  animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.hero-term figcaption { display: flex; gap: 16px; align-items: center;
+  min-height: 62px; }
+.hero-term .cap { flex: 1; transition: opacity .4s; }
+/* Sliding from one screen to the next */
+.hero-term pre { transition: transform .42s ease, opacity .42s ease; }
+.hero-term.leaving pre { transform: translateX(-40px); opacity: 0; }
+.hero-term.leaving .cap, .hero-term.leaving .fmt { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-term pre, .hero-term .cap { transition: none; }
+  .hero-term .cursor { animation: none; }
+}
+/* The dots: one per screen. The current one is a bar that fills while
+ * the finished screen waits, and stops filling while it is held. */
+.dots { display: none; gap: 6px; flex: none; }
+.live .dots { display: flex; }
+.dots button { width: 10px; height: 10px; padding: 0; border: 0;
+  border-radius: 5px; background: rgba(255,255,255,.35); cursor: pointer;
+  overflow: hidden; transition: width .3s; }
+.dots button[aria-current] { width: 28px; background: rgba(255,255,255,.3); }
+.dots button i { display: block; height: 100%; width: 0;
+  background: #ffffff; }
+.done .dots button[aria-current] i { width: 100%;
+  transition: width var(--hold, 4s) linear; }
+.paused .dots button[aria-current] i { width: 0; transition: none; }
+.dots button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ===== The sections below the hero ===== */
+
+main section { padding: 64px 0; }
+.band { background: var(--band); border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line); }
+main section h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 28px;
+  letter-spacing: -.3px; }
+[lang="ja"] main section h2 { letter-spacing: 0; }
+[lang="ja"] h1, [lang="ja"] h2, [lang="ja"] h3 { word-break: keep-all;
+  overflow-wrap: anywhere; }
+
+/* One tool, three formats */
+.formats h2 { margin-bottom: 10px; }
+.formats .intro { color: var(--muted); margin: 0 0 28px; max-width: 70ch; }
+.fmts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.fmtcard { background: var(--surface); border: 1px solid var(--line);
+  border-top: 4px solid var(--accent); border-radius: 12px; padding: 20px 22px; }
+.fmtcard h3 { margin: 0 0 8px; font-size: 26px; letter-spacing: 1px;
+  font-weight: 800; color: var(--accent-text); }
+.fmtcard h3 span { font-size: 13px; font-weight: 600; color: var(--muted);
+  letter-spacing: .3px; margin-left: 6px; font-family: var(--mono); }
+.fmtcard p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+.fmtcard dl { margin: 0; display: grid; grid-template-columns: auto 1fr;
+  gap: 6px 12px; font-size: 14px; border-top: 1px solid var(--line);
+  padding-top: 12px; }
+.fmtcard dt { font-weight: 800; font-size: 12px; letter-spacing: .8px;
+  color: var(--accent-text); padding-top: 2px; }
+.fmtcard dt:nth-of-type(2) { color: var(--second); }
+.fmtcard dd { margin: 0; }
+
+/* The two programs */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.prog { display: flex; gap: 18px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; padding: 22px; }
+.prog .mark { width: 52px; height: 52px; flex: none; }
+.prog h3 { margin: 0 0 6px; font-size: 19px; letter-spacing: .5px; }
+.prog h3 span { font-weight: 500; color: var(--muted); letter-spacing: 0;
+  margin-left: 6px; font-size: 15px; }
+.prog.kago h3 { color: var(--accent-text); }
+.prog.unkago h3 { color: var(--second); }
+.prog p { margin: 0; color: var(--muted); }
+.prog .usage { margin-top: 12px; font-size: 14px; }
+
+/* The features */
+.feats { display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px 32px; }
+.feat h3 { font-size: 16px; margin: 0 0 6px; }
+.feat h3::before { content: ""; display: inline-block; width: 8px;
+  height: 8px; border-radius: 2px; background: var(--accent);
+  margin-right: 10px; vertical-align: 2px; }
+.feat p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* Requirements, and the name */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.reqs { margin: 0 0 16px; padding-left: 20px; }
+.reqs li { margin-bottom: 8px; }
+.more, .names { color: var(--muted); margin: 0; }
+.names em { color: var(--text); font-style: normal; font-weight: 600; }
+
+@media (max-width: 960px) {
+  .heroin, .two, .cols { grid-template-columns: 1fr; }
+  .fmts { grid-template-columns: 1fr; }
+  .feats { grid-template-columns: 1fr 1fr; }
+  .hero { padding: 44px 0 40px; }
+  .msxlogo { width: 150px; margin-bottom: 20px; }
+  main section { padding: 44px 0; }
+}
+@media (max-width: 560px) {
+  .feats { grid-template-columns: 1fr; }
+  .term pre { font-size: 10.5px; padding: 12px; }
+  .hero-term pre { font-size: 10.5px; }
+  .hero-term .screen { height: calc(24 * 1.5 * 10.5px); margin: 12px; }
+}
+
+/* ===================================================================
+ * Pages of text: Download, Examples, Manual
+ * =================================================================== */
+
+.article { max-width: 772px; padding-top: 40px; padding-bottom: 64px;
+  font-size: 17px; line-height: 1.75; }
+.article.wide { max-width: 860px; }
+[lang="ja"] .article { font-size: 16.5px; line-height: 1.95; }
+.article h1 { font-size: clamp(30px, 4.2vw, 42px); line-height: 1.2;
+  margin: 0 0 24px; letter-spacing: -.4px; }
+.article h2 { font-size: 24px; line-height: 1.3; margin: 48px 0 14px;
+  letter-spacing: -.2px; }
+.article h3 { font-size: 19px; line-height: 1.35; margin: 32px 0 10px; }
+[lang="ja"] .article h1, [lang="ja"] .article h2 { letter-spacing: 0; }
+.article p { margin: 0 0 1.1em; }
+.article ul, .article ol { margin: 0 0 1.2em; padding-left: 1.4em; }
+.article li { margin-bottom: .4em; }
+.article strong { color: var(--text); }
+
+.article pre { font-family: var(--mono); font-size: 14px; line-height: 1.6;
+  background: var(--band); border: 1px solid var(--line); border-radius: 8px;
+  padding: 14px 16px; margin: 0 0 1.4em; overflow-x: auto; }
+.article pre code { background: none; padding: 0; font-size: inherit; }
+
+/* MSX-DOS2 sessions in the text: the same blue screen */
+.article pre.session { background: var(--term-bg); color: var(--term-text);
+  border-color: var(--term-line); }
+.article pre.session .pr { color: var(--term-faded); }
+.article pre.session .cmd { color: #ffffff; font-weight: 700; }
+
+.article blockquote { margin: 1.4em 0; padding: 12px 18px;
+  background: var(--band); border: 1px solid var(--line);
+  border-left: 4px solid var(--accent); border-radius: 6px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+
+.article table { border-collapse: collapse; margin: 0 0 1.4em; font-size: 15px;
+  line-height: 1.5; display: block; overflow-x: auto; }
+.article th, .article td { text-align: left; padding: 7px 16px 7px 0;
+  border-bottom: 1px solid var(--line); vertical-align: top; }
+.article th { color: var(--text); border-bottom-width: 2px; }
+.article .size { color: var(--muted); font-size: .9em; font-weight: 400; }
+
+@media (max-width: 560px) {
+  .article { font-size: 16px; padding-top: 28px; }
+  .article pre { font-size: 12.5px; }
+}
+
+/* The Examples page: a contents list, then one screen per session,
+ * wide enough for the MSX's 80 columns. */
+.exnav ul { list-style: none; padding: 0; margin: 0 0 8px;
+  columns: 2; column-gap: 32px; font-size: 15px; }
+.exnav li { break-inside: avoid; margin-bottom: 6px; }
+.exnav b { display: inline-block; min-width: 3.2em; font-size: 11px;
+  letter-spacing: .8px; color: var(--muted); }
+.example { border-top: 1px solid var(--line); margin-top: 40px; }
+.example h2 { margin-top: 28px; }
+/* The screen's own look, over the text pages' rules for <pre> */
+.article .term pre { background: none; border: 0; border-radius: 0;
+  margin: 0; padding: 16px; font-size: 13px; line-height: 1.5; }
+@media (max-width: 560px) { .article .term pre { font-size: 10.5px; padding: 12px; } }
+@media (max-width: 640px) { .exnav ul { columns: 1; } }
+
+/* The manual: one page, its contents beside it on a wide screen */
+.manual { display: grid; grid-template-columns: 240px minmax(0, 1fr);
+  gap: 48px; align-items: start; }
+.manual .article { padding-top: 40px; max-width: 772px; }
+.toc { position: sticky; top: 0; max-height: 100vh; overflow-y: auto;
+  padding: 40px 0 24px; font-size: 14px; line-height: 1.45; }
+.toc > p { font-weight: 700; color: var(--text); margin: 0 0 10px;
+  font-size: 13px; letter-spacing: .6px; text-transform: uppercase; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc ul ul { padding-left: 14px; margin: 4px 0 8px; }
+.toc li { margin: 0 0 5px; }
+.toc a { color: var(--muted); }
+.toc a:hover { color: var(--accent-text); text-decoration: none; }
+.toc > ul > li > a { color: var(--text); font-weight: 600; }
+@media (max-width: 900px) {
+  .manual { grid-template-columns: 1fr; gap: 0; }
+  .toc { position: static; max-height: none; padding-bottom: 0;
+    border-bottom: 1px solid var(--line); }
+}
+
+/* The root page: two links, seen only without JavaScript */
+.choose { max-width: 1120px; margin: 0 auto; padding: 64px 16px;
+  font-size: 20px; }
+

@@ -1,0 +1,22 @@
+{{- /* terminal-carousel.html - the MSX-DOS2 screen in the hero. It shows
+       the sessions marked "hero" in data/sessions.yaml one at a time:
+       hero.js types each command and prints its output, then moves on
+       to the next. Without JavaScript, the first session is shown
+       whole. The output is the same in every language, because it is
+       what the MSX prints; the caption below it is translated. */ -}}
+{{- $lang := .Language.Lang -}}
+{{- $screens := slice -}}
+{{- range where hugo.Data.sessions "hero" true -}}
+  {{- $screens = $screens | append (dict "format" .format "caption" (index .caption $lang) "steps" (partial "session-steps.html" .)) -}}
+{{- end -}}
+{{- $first := index (where hugo.Data.sessions "hero" true) 0 -}}
+<figure class="term hero-term" id="carousel" aria-roledescription="carousel" aria-label="{{ i18n "carouselLabel" }}">
+<div class="termbar"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><b>MSX-DOS2</b><em class="fmt">{{ $first.format }}</em></div>
+<div class="screen"><pre aria-live="off">{{ partial "session-screen.html" $first }}</pre></div>
+<figcaption><span class="cap">{{ index $first.caption $lang }}</span>
+<span class="dots" role="group" aria-label="{{ i18n "carouselScreens" }}">
+{{- range $i, $s := $screens }}<button type="button" aria-label="{{ add $i 1 }}: {{ .format }}"{{ if eq $i 0 }} aria-current="true"{{ end }}><i></i></button>{{ end -}}
+</span></figcaption>
+<script type="application/json" class="screens">{{ $screens | jsonify | safeJS }}</script>
+</figure>
+<script src="/js/hero.js" defer></script>

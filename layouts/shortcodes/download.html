@@ -1,0 +1,9 @@
+{{- /* A link to one of the two programs in the GitHub release of the
+       version in hugo.toml, followed by its size in bytes (kagoSize,
+       unkagoSize in hugo.toml): {{< download "kago.com" >}}. The link
+       shows the name as MSX-DOS does, in upper case. */ -}}
+{{- $file := .Get 0 }}
+{{- $size := index site.Params (printf "%sSize" (strings.TrimSuffix ".com" $file)) }}
+{{- if not $size }}{{ errorf "download: no size for %s in hugo.toml (%s)" $file .Position }}{{ end -}}
+<a href="{{ site.Params.github }}/releases/download/v{{ site.Params.version }}/{{ $file }}" download><code>{{ upper $file }}</code></a> <span class="size">({{ i18n "bytes" (dict "Count" (lang.FormatNumberCustom 0 $size)) }})</span>
+{{- /**/ -}}

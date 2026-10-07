@@ -1,0 +1,11 @@
+{{- /* A code block marked ```session is an MSX-DOS2 screen. On each line
+       that begins with a prompt (A>, A:\> or A:\SOMEDIR>), what follows
+       the prompt is what the reader types, and is shown in bold. */ -}}
+<pre class="session"><code>
+{{- range $i, $line := split .Inner "\n" }}
+  {{- if $i }}{{ "\n" }}{{ end }}
+  {{- $m := findRESubmatch `^([A-Z](?::\\[^>]*)?>)(.*)$` $line 1 }}
+  {{- with $m }}
+    {{- $p := index . 0 }}<span class="pr">{{ index $p 1 }}</span><span class="cmd">{{ index $p 2 }}</span>
+  {{- else }}{{ $line }}{{ end }}
+{{- end }}</code></pre>

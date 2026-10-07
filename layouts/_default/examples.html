@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{- $lang := .Language.Lang }}
+<article class="article wrap wide">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <nav class="exnav" aria-label="{{ i18n "contents" }}"><ul>
+    {{- range hugo.Data.sessions }}
+    <li><a href="#{{ .id }}">{{ with .format }}<b>{{ . }}</b> {{ end }}{{ index .title $lang }}</a></li>
+    {{- end }}
+  </ul></nav>
+  {{- range hugo.Data.sessions }}
+  <div class="example" id="{{ .id }}">
+    <h2>{{ index .title $lang }}</h2>
+    <p>{{ index .text $lang | markdownify }}</p>
+    <figure class="term">
+      <div class="termbar" aria-hidden="true"><span></span><span></span><span></span><b>MSX-DOS2</b>{{ with .format }}<em class="fmt">{{ . }}</em>{{ end }}</div>
+      <pre>{{ partial "session-screen.html" . }}</pre>
+    </figure>
+  </div>
+  {{- end }}
+</article>
+{{ end }}

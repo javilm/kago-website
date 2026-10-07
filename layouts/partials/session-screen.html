@@ -1,0 +1,8 @@
+{{- /* session-screen.html - a session's whole screen, as HTML for a
+       <pre>: each prompt, the command typed in bold, the output, and
+       the prompt it ends at. Takes a session from data/sessions.yaml. */ -}}
+{{- $html := "" -}}
+{{- range partial "session-steps.html" . -}}
+  {{- $html = printf "%s<span class=\"pr\">%s</span><span class=\"cmd\">%s</span>\n%s\n\n" $html (.p | htmlEscape) (.c | htmlEscape) (.o | htmlEscape) -}}
+{{- end -}}
+{{- return (printf "%s<span class=\"pr\">%s</span>" $html (.prompt | htmlEscape) | safeHTML) -}}

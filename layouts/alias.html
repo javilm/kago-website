@@ -1,0 +1,36 @@
+{{- /*
+alias.html - the page Hugo writes at an address that only leads to
+another page: the root, /, leading to /en/, and the short addresses
+/download/ and /examples/, given as aliases in the English pages.
+
+The script sends the reader to the Japanese page if the browser's first
+language is Japanese, and to the English page otherwise. Below it are
+plain links to both, for a browser with JavaScript turned off.
+
+.Permalink is the English address; the Japanese one is the same with
+/ja/ in place of /en/. Plausible is not loaded: the page is left at
+once, and counting it would count every visit twice.
+*/ -}}
+{{- $en := .Permalink -}}
+{{- $ja := replace $en "/en/" "/ja/" -}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.Title }}</title>
+<link rel="canonical" href="{{ $en }}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script>
+var lang = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+location.replace(/^ja(-|$)/i.test(lang) ? {{ $ja }} : {{ $en }});
+</script>
+</head>
+<body>
+<main class="choose">
+<p><a href="{{ $en }}">English</a></p>
+<p><a href="{{ $ja }}" lang="ja">日本語</a></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{{- /* software-data.html - a description of KAGO and UNKAGO for search
+       engines (schema.org, as JSON-LD), on the two home pages. */ -}}
+{{- $data := dict
+  "@context" "https://schema.org"
+  "@type" "SoftwareApplication"
+  "name" "KAGO / UNKAGO"
+  "description" .Description
+  "url" .Permalink
+  "inLanguage" .Lang
+  "applicationCategory" "UtilitiesApplication"
+  "operatingSystem" "MSX-DOS2, Nextor"
+  "softwareVersion" site.Params.version
+  "license" "https://www.apache.org/licenses/LICENSE-2.0"
+  "downloadUrl" (printf "%s/releases/tag/v%s" site.Params.github site.Params.version)
+  "image" (printf "img/preview-%s.jpg" .Lang | absURL)
+  "author" (dict "@type" "Person" "name" site.Params.author "url" site.Params.authorURL)
+  "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "USD")
+-}}
+<script type="application/ld+json">{{ $data | jsonify | safeJS }}</script>

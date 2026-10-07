@@ -1,0 +1,22 @@
+{{- /*
+404.html - the page shown for an address with nothing at it. Hugo
+writes one per language, /en/404.html and /ja/404.html, each in the
+frame of its language. Below the message is one line in the other
+language, linking to that language's home page, for a reader who
+arrived from an address with no language in it.
+
+Which of the two a web server sends is its own configuration; for
+"hugo server" it is set in hugo.toml (server.redirects).
+*/ -}}
+{{ define "main" }}
+<article class="article wrap">
+  <h1>{{ i18n "notFound" }}</h1>
+  <p>{{ i18n "notFoundText" }}</p>
+  <p><a href="{{ site.Home.RelPermalink }}">{{ i18n "notFoundHome" }}</a></p>
+  {{- range hugo.Sites }}
+  {{- if ne .Language.Lang $.Lang }}
+  <p lang="{{ .Language.Lang }}"><a href="{{ .Home.RelPermalink }}" hreflang="{{ .Language.Lang }}">{{ i18n "notFoundOther" }}</a></p>
+  {{- end }}
+  {{- end }}
+</article>
+{{ end }}

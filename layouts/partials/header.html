@@ -1,0 +1,31 @@
+<header class="top"><div class="wrap topin">
+  <a class="brand" href="{{ site.Home.RelPermalink }}">
+    {{- with resources.Get "img/mark-kago.svg" }}{{ .Content | safeHTML }}{{ end -}}
+    <span>{{ site.Title }}</span></a>
+  <nav class="mainnav">
+    {{- $here := .RelPermalink }}
+    {{- range site.Menus.main }}
+    <a href="{{ .URL }}"{{ if hasPrefix $here .URL }} class="cur" aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{- end }}
+    <a href="{{ site.Params.github }}">{{ i18n "github" }}</a>
+  </nav>
+  <div class="tools">
+  {{- /* The same page in each other language, or that language's home
+         page when this page has no translation. */}}
+  {{- $page := . }}
+  {{- range hugo.Sites }}
+    {{- with .Language }}
+    {{- if ne .Lang $page.Language.Lang }}
+      {{- $lang := .Lang }}
+      {{- $target := "" }}
+      {{- range $page.Translations }}{{ if eq .Language.Lang $lang }}{{ $target = .RelPermalink }}{{ end }}{{ end }}
+      {{- if not $target }}{{ $target = printf "/%s/" .Lang }}{{ end }}
+  <a class="langsw" href="{{ $target }}" lang="{{ .Lang }}" hreflang="{{ .Lang }}">{{ .Label }}</a>
+    {{- end }}
+    {{- end }}
+  {{- end }}
+  <button class="themesw" type="button" onclick="toggleTheme()" title="{{ i18n "theme" }}" aria-label="{{ i18n "theme" }}">
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+  </button>
+  </div>
+</div></header>

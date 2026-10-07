@@ -1,0 +1,38 @@
+# i18n/en.toml - the short texts of the shared template, in English.
+
+github = "GitHub"
+skip = "Skip to the content"
+licence = "Apache License 2.0"
+source = "Source on GitHub"
+builtWith = 'Built on the MSX with <a href="https://tatara.tools">Tatara</a>'
+
+# The home page
+eyebrow = "Version {{ .Version }} · ZIP · LZH · PMA · for MSX-DOS2 and Nextor"
+downloadButton = "Download KAGO {{ .Version }}"
+manualButton = "Read the manual"
+carouselLabel = "KAGO and UNKAGO at work on an MSX"
+carouselScreens = "Screens"
+
+# The Download page: a file's size
+bytes = "{{ .Count }} bytes"
+
+# The Examples and Manual pages
+contents = "Contents"
+examplesIntro = "Each example is a session on an MSX running MSX-DOS2, shown as the screen shows it."
+
+# The light/dark button in the header
+theme = "Switch between light and dark"
+
+# The "page not found" page. notFoundOther is in Japanese: it is the
+# line for a Japanese reader, linking to the Japanese home page.
+notFound = "Page not found"
+notFoundText = "There is no page at this address. Choose a page from the menu above, or start again from the home page."
+notFoundHome = "Go to the home page"
+notFoundOther = "ページが見つかりません。日本語のホームページへ"
+
+# For social media previews
+previewAlt = "Kago's home page: the MSX logo, one pair of tools for every archive format on the MSX, and an MSX-DOS2 screen packing a directory tree into a ZIP archive."
+
+# The notices in the footer
+msxTrademark = "MSX is a trademark of MSX Licensing Corporation."
+nextorCopyright = "Nextor is copyright © Néstor Soriano."

@@ -1,0 +1,82 @@
+# hugo.toml - settings for the kago.tools website.
+
+baseURL = "https://kago.tools/"
+title = "Kago"
+
+# Every page lives under its language: /en/..., /ja/...
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+# Pages this site does not have: categories, tags, and RSS feeds.
+disableKinds = ["taxonomy", "term", "rss"]
+
+# robots.txt, from layouts/robots.txt.
+enableRobotsTXT = true
+
+[params]
+  # The release the site offers. Every page that mentions the version
+  # takes it from here. The Download page links to the two programs in
+  # the GitHub release of this version, with their sizes in bytes as
+  # given below: update both with each release.
+  version = "1.0.1"
+  kagoSize = 18857
+  unkagoSize = 17853
+  github = "https://github.com/javilm/kago"
+  author = "Javier Lavandeira"
+  authorURL = "https://www.lavandeira.net"
+  copyright = "2026"
+
+
+[languages.en]
+  label = "English"
+  weight = 1
+  contentDir = "content/en"
+
+  [[languages.en.menus.main]]
+    name = "Download"
+    url = "/en/download/"
+    weight = 1
+  [[languages.en.menus.main]]
+    name = "Examples"
+    url = "/en/examples/"
+    weight = 2
+  [[languages.en.menus.main]]
+    name = "Manual"
+    url = "/en/manual/"
+    weight = 3
+
+[languages.ja]
+  label = "日本語"
+  weight = 2
+  contentDir = "content/ja"
+
+  [[languages.ja.menus.main]]
+    name = "ダウンロード"
+    url = "/ja/download/"
+    weight = 1
+  [[languages.ja.menus.main]]
+    name = "使用例"
+    url = "/ja/examples/"
+    weight = 2
+  [[languages.ja.menus.main]]
+    name = "マニュアル"
+    url = "/ja/manual/"
+    weight = 3
+
+# The manual: section headings and their table of contents.
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+
+# For "hugo server" only: a missing address under /ja/ shows the
+# Japanese "page not found" page, and any other the English one. nginx
+# does the same in production (nginx.conf).
+[[server.redirects]]
+from = "/ja/**"
+to = "/ja/404.html"
+status = 404
+
+[[server.redirects]]
+from = "/**"
+to = "/en/404.html"
+status = 404
